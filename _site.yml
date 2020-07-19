@@ -1,0 +1,28 @@
+name: "how2-cli"
+output_dir: "."
+navbar:
+  title: "how2-cli"
+  left:
+    - text: "brew"
+      href: todo.html
+    - text: "bash"
+      href: todo.html
+    - text: "commands"
+      href: todo.html
+    - text: "git"
+      href: todo.html
+    - text: "misc"
+      menu:
+        - text: "crontab"
+          href: todo.html
+        - text: "curl"
+          href: todo.html
+        - text: "docker"
+          href: todo.html
+        - text: "zsh"
+          href: todo.html
+  right:
+    - icon: fa-github fa-lg
+      href: https://github.com/dkidney/how2-cli
+    - icon: fa-linkedin fa-lg
+      href: https://uk.linkedin.com/in/darren-kidney-495b8a103/
