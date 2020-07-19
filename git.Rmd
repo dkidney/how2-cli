@@ -1,0 +1,185 @@
+---
+title: git
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, include=FALSE}
+source("_knitr_config.R")
+```
+
+*********************************************************************
+
+<!-- * https://git-scm.com/docs/gitglossary   -->
+<!-- * https://git-scm.com/docs   -->
+<!-- * https://git-scm.com/book/en/v2   -->
+
+<!-- * https://help.github.com/en/articles/github-glossary   -->
+<!-- * https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf   -->
+
+<!-- * https://www.atlassian.com/git/glossary/terminology   -->
+<!-- * https://www.atlassian.com/git/tutorials   -->
+
+<!-- * https://www.git-tower.com/learn/git/ebook/en/command-line/   -->
+<!-- * https://happygitwithr.com/   -->
+<!-- * https://www.youtube.com/githubguides   -->
+
+*********************************************************************
+
+## faqs
+
+* amend a commit that hasn't been pushed - see [git commit --amend](#git-commit-amend)   
+* undo a commit that hasn't been pushed - see [git reset](#git-reset)   
+<!-- * delete a commit - see [git rebase](#git-rebase) -->
+* delete a branch - see [git branch](#git-branch)   
+* create a repo from a local directory - see [git remote](#git-remote)  
+* clone a repo from github- see [git clone](#git-clone)  
+
+*********************************************************************
+
+## installation
+
+```sh
+brew install git
+git --version
+which git
+
+# configure
+git config --global user.name "myUserName"
+git config --global user.email myName@email.com
+```
+
+
+*********************************************************************
+
+## commands
+
+*********************************************************************
+
+### git branch {#git-branch}
+
+*TODO*
+
+*********************************************************************
+
+### git clone {#git-clone}
+
+*TODO*
+
+*********************************************************************
+
+### git commit {#git-commit}
+
+#### --amend {#git-commit-amend}
+
+E.g. amend the most recent commit, provided you haven't pushed it:
+
+```sh
+# change the commit message
+got commit --amend # opens an editor
+
+# change the content of the commit
+git add my-amended-file.txt
+git commit --amend
+```
+
+*********************************************************************
+
+### git rebase {#git-rebase}
+
+* this is dangerous because it rewrites the commit history  
+* golden rule: never rebase published commits  
+
+*TODO*
+
+*********************************************************************
+
+### git remote {#git-remote}
+
+Manage remotes.
+
+E.g. create a repo from a local directory:
+
+```sh
+# go to github and make the remote repo, 
+# then do the following from your local machine:
+
+# make at least one commit in your local repo to create the master branch
+echo "# how2-cli" > README.md
+git init
+git add README.md
+git commit -m "first commit"
+
+# add a new remote 
+git remote add origin https://github.com/dkidney/how2-cli.git
+
+# see which remote repo(s) the local repo is connected to (should be 'origin')
+git remote
+git remote -v # for more info
+
+# set the origin as the default remote repository
+git push -u origin master
+
+# remove the remote if you ever need to 
+git remote rm how2-cli
+```
+
+*********************************************************************
+
+### git reset {#git-reset}
+
+E.g. undo the last commit, provided it hasn't been pushed:
+
+```sh
+# preserve changes in undone revisions
+git reset --soft HEAD~1
+
+# DELETE changes in undone revisions
+git reset --hard HEAD~1
+```
+
+*********************************************************************
+
+### git revert {#git-revert}
+
+*********************************************************************
+
+## github
+
+### github pages
+
+https://pages.github.com/
+
+* sign in to [Github](https://github.com/login) and navigate to your repo  
+* go to **Settings**  
+* scroll down to the **Github Pages** section  
+* under **Source** select **master branch** (or whatever option you prefer)  
+* choose a theme if you want one  
+* your pages should now be available at http://dkidney.github.io/how2-cli  
+
+E.g. add a link in the readme:
+
+```sh
+touch README.md
+echo '' >> README.md
+echo 'http://dkidney.github.io/how2-cli' >> README.md
+git add README.md
+git commit -m "added github pages link to readme"
+git push
+```
+
+*********************************************************************
+
+## glossary
+
+* https://git-scm.com/docs/gitglossary  
+* https://linuxacademy.com/blog/linux/git-terms-explained  
+
+term | description
+------------- | -------------
+branch | *todo*
+HEAD | refers to the most recent commit of the repo in which you are working
+origin | the conventional name of the remote repo
+remote repo | a repo that tracks your local project but which lives remotely (e.g. on github)
+upstream | i.e. where you push your changes to - e.g. the master branch of the remote repo
+

@@ -10,7 +10,7 @@ navbar:
     - text: "commands"
       href: todo.html
     - text: "git"
-      href: todo.html
+      href: git.html
     - text: "misc"
       menu:
         - text: "crontab"
