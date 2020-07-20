@@ -38,13 +38,13 @@ echo {a..e} # a b c d e
 echo {W..Z} # W X Y Z
 echo a{0..4} # a0 a1 a2 a3 a4
 echo b{0..4}c # b0c b1c b2c b3c b4c
-echo {1..3}{A..C} # 1A 1B 1C 2A 2B 2C 3A 3B 3C
+#echo {1..3}{A..C} # 1A 1B 1C 2A 2B 2C 3A 3B 3C
 start=4
 end=9
 echo {$start..$end} # {4..9}
 eval echo {$start..$end} # 4 5 6 7 8 9
 echo {{1..3},{a..c}} # 1 2 3 a b c
-echo {Who,What,Why,When,How}? # Who? What? Why? When? How?
+echo {Who,What,Why,When,How}\? # Who? What? Why? When? How?
 ```
 
 
@@ -63,8 +63,8 @@ false && echo 'line 2'
 true  || echo 'line 3'
 false || echo 'line 4' # gets printed
 
-true  && echo t || echo f
-false && echo t || echo f
+true  && echo t || echo f # t
+false && echo t || echo f # f
 ```
 
 ### other operators
