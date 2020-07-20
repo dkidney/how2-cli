@@ -4,11 +4,11 @@ navbar:
   title: "how2-cli"
   left:
     - text: "brew"
-      href: todo.html
+      href: brew.html
     - text: "bash"
-      href: todo.html
+      href: bash.html
     - text: "commands"
-      href: todo.html
+      href: commands.html
     - text: "git"
       href: git.html
     - text: "misc"

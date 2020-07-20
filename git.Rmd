@@ -98,15 +98,18 @@ git commit --amend
 
 Manage remotes.
 
-E.g. create a repo from a local directory:
+E.g. create a remote repo from a local directory:
 
 ```sh
 # go to github and make the remote repo, 
 # then do the following from your local machine:
 
-# make at least one commit in your local repo to create the master branch
-echo "# how2-cli" > README.md
+# initialise your local repo if you haven't already done so
 git init
+
+# make at least one commit in your local repo to create the master branch
+touch README.md
+echo "# how2-cli" > README.md
 git add README.md
 git commit -m "first commit"
 
@@ -121,7 +124,7 @@ git remote -v # for more info
 git push -u origin master
 
 # remove the remote if you ever need to 
-git remote rm how2-cli
+git remote rm origin
 ```
 
 *********************************************************************

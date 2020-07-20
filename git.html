@@ -423,13 +423,13 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="todo.html">brew</a>
+  <a href="brew.html">brew</a>
 </li>
 <li>
-  <a href="todo.html">bash</a>
+  <a href="bash.html">bash</a>
 </li>
 <li>
-  <a href="todo.html">commands</a>
+  <a href="commands.html">commands</a>
 </li>
 <li>
   <a href="git.html">git</a>
@@ -561,28 +561,31 @@ div.tocify {
 <div id="git-remote" class="section level3">
 <h3>git remote</h3>
 <p>Manage remotes.</p>
-<p>E.g. create a repo from a local directory:</p>
+<p>E.g. create a remote repo from a local directory:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># go to github and make the remote repo, </span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="co"># then do the following from your local machine:</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># make at least one commit in your local repo to create the master branch</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="bu">echo</span> <span class="st">&quot;# how2-cli&quot;</span> <span class="op">&gt;</span> README.md</span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="fu">git</span> init</span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="fu">git</span> add README.md</span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="fu">git</span> commit -m <span class="st">&quot;first commit&quot;</span></span>
-<span id="cb3-9"><a href="#cb3-9"></a></span>
-<span id="cb3-10"><a href="#cb3-10"></a><span class="co"># add a new remote </span></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="fu">git</span> remote add origin https://github.com/dkidney/how2-cli.git</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># initialise your local repo if you haven&#39;t already done so</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="fu">git</span> init</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co"># make at least one commit in your local repo to create the master branch</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="fu">touch</span> README.md</span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="bu">echo</span> <span class="st">&quot;# how2-cli&quot;</span> <span class="op">&gt;</span> README.md</span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="fu">git</span> add README.md</span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="fu">git</span> commit -m <span class="st">&quot;first commit&quot;</span></span>
 <span id="cb3-12"><a href="#cb3-12"></a></span>
-<span id="cb3-13"><a href="#cb3-13"></a><span class="co"># see which remote repo(s) the local repo is connected to (should be &#39;origin&#39;)</span></span>
-<span id="cb3-14"><a href="#cb3-14"></a><span class="fu">git</span> remote</span>
-<span id="cb3-15"><a href="#cb3-15"></a><span class="fu">git</span> remote -v <span class="co"># for more info</span></span>
-<span id="cb3-16"><a href="#cb3-16"></a></span>
-<span id="cb3-17"><a href="#cb3-17"></a><span class="co"># set the origin as the default remote repository</span></span>
-<span id="cb3-18"><a href="#cb3-18"></a><span class="fu">git</span> push -u origin master</span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="co"># add a new remote </span></span>
+<span id="cb3-14"><a href="#cb3-14"></a><span class="fu">git</span> remote add origin https://github.com/dkidney/how2-cli.git</span>
+<span id="cb3-15"><a href="#cb3-15"></a></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="co"># see which remote repo(s) the local repo is connected to (should be &#39;origin&#39;)</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="fu">git</span> remote</span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="fu">git</span> remote -v <span class="co"># for more info</span></span>
 <span id="cb3-19"><a href="#cb3-19"></a></span>
-<span id="cb3-20"><a href="#cb3-20"></a><span class="co"># remove the remote if you ever need to </span></span>
-<span id="cb3-21"><a href="#cb3-21"></a><span class="fu">git</span> remote rm how2-cli</span></code></pre></div>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="co"># set the origin as the default remote repository</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="fu">git</span> push -u origin master</span>
+<span id="cb3-22"><a href="#cb3-22"></a></span>
+<span id="cb3-23"><a href="#cb3-23"></a><span class="co"># remove the remote if you ever need to </span></span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="fu">git</span> remote rm origin</span></code></pre></div>
 <hr />
 </div>
 <div id="git-reset" class="section level3">
