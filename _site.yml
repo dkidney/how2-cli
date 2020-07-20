@@ -16,11 +16,11 @@ navbar:
         - text: "crontab"
           href: todo.html
         - text: "curl"
-          href: todo.html
+          href: curl.html
         - text: "docker"
           href: todo.html
         - text: "zsh"
-          href: todo.html
+          href: zsh.html
   right:
     - icon: fa-github fa-lg
       href: https://github.com/dkidney/how2-cli

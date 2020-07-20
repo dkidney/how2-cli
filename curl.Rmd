@@ -1,0 +1,30 @@
+---
+title: curl
+---
+
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+*********************************************************************
+
+## Download files
+
+```sh
+curl -O http://website.org/textfile.txt
+```
+
+*********************************************************************
+
+## HTTP requests
+
+E.g. 
+
+```sh
+curl https://api.github.com/repos/dkidney/how2/languages
+```
+
+Provide arguments by putting a question mark after the API’s URL.
+
+```sh
+curl [url]?[argname1]=[argvalue1]&[argname2]=[argvalue2]&[etc.]
+```
