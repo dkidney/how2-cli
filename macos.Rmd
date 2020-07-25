@@ -9,14 +9,13 @@ editor_options:
 
 *********************************************************************
 
-
 ## startup chime
 
 ```sh
-# enable
+# disable
 sudo nvram SystemAudioVolume=%80
 
-# disable
+# enable
 sudo nvram -d SystemAudioVolume
 ```
 
