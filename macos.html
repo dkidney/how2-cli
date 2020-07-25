@@ -11,7 +11,7 @@
 
 
 
-<title>git</title>
+<title>mac os</title>
 
 <script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -481,206 +481,19 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">git</h1>
+<h1 class="title toc-ignore">mac os</h1>
 
 </div>
 
 
 <hr />
-<!-- * https://git-scm.com/docs/gitglossary   -->
-<!-- * https://git-scm.com/docs   -->
-<!-- * https://git-scm.com/book/en/v2   -->
-<!-- * https://help.github.com/en/articles/github-glossary   -->
-<!-- * https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf   -->
-<!-- * https://www.atlassian.com/git/glossary/terminology   -->
-<!-- * https://www.atlassian.com/git/tutorials   -->
-<!-- * https://www.git-tower.com/learn/git/ebook/en/command-line/   -->
-<!-- * https://happygitwithr.com/   -->
-<!-- * https://www.youtube.com/githubguides   -->
-<hr />
-<div id="faqs" class="section level2">
-<h2>faqs</h2>
-<ul>
-<li>amend a commit that hasn’t been pushed - see <a href="#git-commit-amend">git commit –amend</a><br />
-</li>
-<li>undo a commit that hasn’t been pushed - see <a href="#git-reset">git reset</a><br />
-<!-- * delete a commit - see [git rebase](#git-rebase) --></li>
-<li>delete a branch - see <a href="#git-branch">git branch</a><br />
-</li>
-<li>create a repo from a local directory - see <a href="#git-remote">git remote</a><br />
-</li>
-<li>clone a repo from github- see <a href="#git-clone">git clone</a></li>
-</ul>
-<hr />
-</div>
-<div id="installation" class="section level2">
-<h2>installation</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">brew</span> install git</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">git</span> --version</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">which</span> git</span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># configure</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">git</span> config --global user.name <span class="st">&quot;myUserName&quot;</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">git</span> config --global user.email myName@email.com</span></code></pre></div>
-<hr />
-</div>
-<div id="commands" class="section level2">
-<h2>commands</h2>
-<hr />
-<div id="git-branch" class="section level3">
-<h3>git branch</h3>
-<p><em>TODO</em></p>
-<hr />
-</div>
-<div id="git-clone" class="section level3">
-<h3>git clone</h3>
-<p><em>TODO</em></p>
-<hr />
-</div>
-<div id="git-commit" class="section level3">
-<h3>git commit</h3>
-<div id="git-commit-amend" class="section level4">
-<h4>–amend</h4>
-<p>E.g. amend the most recent commit, provided you haven’t pushed it:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># change the commit message</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">got</span> commit --amend <span class="co"># opens an editor</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># change the content of the commit</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">git</span> add my-amended-file.txt</span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="fu">git</span> commit --amend</span></code></pre></div>
-<hr />
-</div>
-</div>
-<div id="git-config" class="section level3">
-<h3>git config</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># view all of your settings and where they are coming from using:</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">git</span> config --list --show-origin</span></code></pre></div>
-<hr />
-</div>
-<div id="git-rebase" class="section level3">
-<h3>git rebase</h3>
-<ul>
-<li>this is dangerous because it rewrites the commit history<br />
-</li>
-<li>golden rule: never rebase published commits</li>
-</ul>
-<p><em>TODO</em></p>
-<hr />
-</div>
-<div id="git-remote" class="section level3">
-<h3>git remote</h3>
-<p>Manage remotes.</p>
-<p>E.g. create a remote repo from a local directory:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># go to github and make the remote repo, </span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># then do the following from your local machine:</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># initialise your local repo if you haven&#39;t already done so</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="fu">git</span> init</span>
-<span id="cb4-6"><a href="#cb4-6"></a></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co"># make at least one commit in your local repo to create the master branch</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="fu">touch</span> README.md</span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="bu">echo</span> <span class="st">&quot;# how2-cli&quot;</span> <span class="op">&gt;</span> README.md</span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="fu">git</span> add README.md</span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="fu">git</span> commit -m <span class="st">&quot;first commit&quot;</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="co"># add a new remote </span></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="fu">git</span> remote add origin https://github.com/dkidney/how2-cli.git</span>
-<span id="cb4-15"><a href="#cb4-15"></a></span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="co"># see which remote repo(s) the local repo is connected to (should be &#39;origin&#39;)</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="fu">git</span> remote</span>
-<span id="cb4-18"><a href="#cb4-18"></a><span class="fu">git</span> remote -v <span class="co"># for more info</span></span>
-<span id="cb4-19"><a href="#cb4-19"></a></span>
-<span id="cb4-20"><a href="#cb4-20"></a><span class="co"># set the origin as the default remote repository</span></span>
-<span id="cb4-21"><a href="#cb4-21"></a><span class="fu">git</span> push -u origin master</span>
-<span id="cb4-22"><a href="#cb4-22"></a></span>
-<span id="cb4-23"><a href="#cb4-23"></a><span class="co"># remove the remote if you ever need to </span></span>
-<span id="cb4-24"><a href="#cb4-24"></a><span class="fu">git</span> remote rm origin</span></code></pre></div>
-<hr />
-</div>
-<div id="git-reset" class="section level3">
-<h3>git reset</h3>
-<p>E.g. undo the last commit, provided it hasn’t been pushed:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># preserve changes in undone revisions</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">git</span> reset --soft HEAD~1</span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># DELETE changes in undone revisions</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="fu">git</span> reset --hard HEAD~1</span></code></pre></div>
-<hr />
-</div>
-<div id="git-revert" class="section level3">
-<h3>git revert</h3>
-<hr />
-</div>
-</div>
-<div id="github" class="section level2">
-<h2>github</h2>
-<div id="github-pages" class="section level3">
-<h3>github pages</h3>
-<p><a href="https://pages.github.com/" class="uri">https://pages.github.com/</a></p>
-<ul>
-<li>sign in to <a href="https://github.com/login">Github</a> and navigate to your repo<br />
-</li>
-<li>go to <strong>Settings</strong><br />
-</li>
-<li>scroll down to the <strong>Github Pages</strong> section<br />
-</li>
-<li>under <strong>Source</strong> select <strong>master branch</strong> (or whatever option you prefer)<br />
-</li>
-<li>choose a theme if you want one<br />
-</li>
-<li>your pages should now be available at <a href="http://dkidney.github.io/how2-cli" class="uri">http://dkidney.github.io/how2-cli</a></li>
-</ul>
-<p>E.g. add a link in the readme:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">touch</span> README.md</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="bu">echo</span> <span class="st">&#39;&#39;</span> <span class="op">&gt;&gt;</span> README.md</span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="bu">echo</span> <span class="st">&#39;http://dkidney.github.io/how2-cli&#39;</span> <span class="op">&gt;&gt;</span> README.md</span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="fu">git</span> add README.md</span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="fu">git</span> commit -m <span class="st">&quot;added github pages link to readme&quot;</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="fu">git</span> push</span></code></pre></div>
-<hr />
-</div>
-</div>
-<div id="glossary" class="section level2">
-<h2>glossary</h2>
-<ul>
-<li><a href="https://git-scm.com/docs/gitglossary" class="uri">https://git-scm.com/docs/gitglossary</a><br />
-</li>
-<li><a href="https://linuxacademy.com/blog/linux/git-terms-explained" class="uri">https://linuxacademy.com/blog/linux/git-terms-explained</a></li>
-</ul>
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>term</th>
-<th>description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>branch</td>
-<td><em>todo</em></td>
-</tr>
-<tr class="even">
-<td>HEAD</td>
-<td>refers to the most recent commit of the repo in which you are working</td>
-</tr>
-<tr class="odd">
-<td>origin</td>
-<td>the conventional name of the remote repo</td>
-</tr>
-<tr class="even">
-<td>remote repo</td>
-<td>a repo that tracks your local project but which lives remotely (e.g. on github)</td>
-</tr>
-<tr class="odd">
-<td>upstream</td>
-<td>i.e. where you push your changes to - e.g. the master branch of the remote repo</td>
-</tr>
-</tbody>
-</table>
+<div id="startup-chime" class="section level2">
+<h2>startup chime</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># enable</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">sudo</span> nvram SystemAudioVolume=%80</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># disable</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">sudo</span> nvram -d SystemAudioVolume</span></code></pre></div>
 </div>
 
 

@@ -19,6 +19,8 @@ navbar:
           href: curl.html
         - text: "docker"
           href: todo.html
+        - text: "macos"
+          href: macos.html
         - text: "zsh"
           href: zsh.html
   right:
