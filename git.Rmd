@@ -85,6 +85,15 @@ git commit --amend
 
 *********************************************************************
 
+### git config {#git-config}
+
+```sh
+# view all of your settings and where they are coming from using:
+git config --list --show-origin
+```
+
+*********************************************************************
+
 ### git rebase {#git-rebase}
 
 * this is dangerous because it rewrites the commit history  

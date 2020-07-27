@@ -1,0 +1,21 @@
+---
+title: mac os
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+*********************************************************************
+
+## startup chime
+
+```sh
+# disable
+sudo nvram SystemAudioVolume=%80
+
+# enable
+sudo nvram -d SystemAudioVolume
+```
+

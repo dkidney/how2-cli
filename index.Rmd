@@ -1,5 +1,5 @@
 ---
-title: "How to do stuff via the command line"
+title: "How to do stuff on the command line"
 author: "Darren Kidney"
 date: '`r format(Sys.Date(), "%d %b %Y")`'
 ---

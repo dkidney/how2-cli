@@ -203,18 +203,9 @@ mas search Pages
 # install an app from the app store
 mas install 497799835 # Xcode
 mas install 408981434 # iMovie
-<<<<<<< Updated upstream
 mas install 409183694 # Keynote 
 mas install 409203825 # Numbers
 mas install 409201541 # Pages
-
-# upgrade an app from the app store
-mas upgrade
-mas upgrade 497799835 # Xcode
-mas upgrade 408981434 # iMovie
-mas upgrade 409183694 # Keynote 
-mas upgrade 409203825 # Numbers
-mas upgrade 409201541 # Pages
 ```
 
 *********************************************************************
