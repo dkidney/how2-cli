@@ -483,6 +483,8 @@ div.tocify {
 </div>
 
 
+<pre><code>## can&#39;t find python engine:
+##  /usr/local/anaconda3/envs/how2/bin/python</code></pre>
 <hr />
 <blockquote>
 <p>Bourne-again shell</p>
@@ -494,28 +496,28 @@ div.tocify {
 <hr />
 <div id="arrays" class="section level2">
 <h2>arrays</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="va">myarray=(</span>a b c d e f g h i j k l m n o p q r s t u v w<span class="va">)</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="bu">echo</span> <span class="va">${myarray[0]}</span> <span class="co"># first element</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="bu">echo</span> <span class="va">${myarray[*]}</span> <span class="co"># all elements</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="va">myarray[0]=</span>A <span class="co"># update element</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="bu">echo</span> <span class="va">${myarray[*]:5:3}</span> <span class="co"># 6th, 7th and 8th elements</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="va">myarray+=(</span>x y z<span class="va">)</span> <span class="co"># append </span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="bu">echo</span> <span class="va">${#myarray[*]}</span> <span class="co"># array length</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="va">myarray=(</span>a b c d e f g h i j k l m n o p q r s t u v w<span class="va">)</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="bu">echo</span> <span class="va">${myarray[0]}</span> <span class="co"># first element</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="bu">echo</span> <span class="va">${myarray[*]}</span> <span class="co"># all elements</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="va">myarray[0]=</span>A <span class="co"># update element</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="bu">echo</span> <span class="va">${myarray[*]:5:3}</span> <span class="co"># 6th, 7th and 8th elements</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="va">myarray+=(</span>x y z<span class="va">)</span> <span class="co"># append </span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="bu">echo</span> <span class="va">${#myarray[*]}</span> <span class="co"># array length</span></span></code></pre></div>
 <hr />
 </div>
 <div id="braces" class="section level2">
 <h2>braces</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="bu">echo</span> <span class="dt">{0..9}</span> <span class="co"># 0 1 2 3 4 5 6 7 8 9</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="bu">echo</span> <span class="dt">{a..e}</span> <span class="co"># a b c d e</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="bu">echo</span> <span class="dt">{W..Z}</span> <span class="co"># W X Y Z</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="bu">echo</span> a<span class="dt">{0..4}</span> <span class="co"># a0 a1 a2 a3 a4</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="bu">echo</span> b<span class="dt">{0..4}</span>c <span class="co"># b0c b1c b2c b3c b4c</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="bu">echo</span> <span class="dt">{1..3}{A..C}</span> <span class="co"># 1A 1B 1C 2A 2B 2C 3A 3B 3C</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="va">start=</span>4</span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="va">end=</span>9</span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="bu">echo</span> <span class="dt">{</span><span class="va">$start</span><span class="dt">..</span><span class="va">$end</span><span class="dt">}</span> <span class="co"># {4..9}</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="bu">eval</span> echo <span class="dt">{</span><span class="va">$start</span><span class="dt">..</span><span class="va">$end</span><span class="dt">}</span> <span class="co"># 4 5 6 7 8 9</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="bu">echo</span> <span class="dt">{Who,What,Why,When,How}</span>\? <span class="co"># Who? What? Why? When? How?</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">echo</span> <span class="dt">{0..9}</span> <span class="co"># 0 1 2 3 4 5 6 7 8 9</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="bu">echo</span> <span class="dt">{a..e}</span> <span class="co"># a b c d e</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="bu">echo</span> <span class="dt">{W..Z}</span> <span class="co"># W X Y Z</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="bu">echo</span> a<span class="dt">{0..4}</span> <span class="co"># a0 a1 a2 a3 a4</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="bu">echo</span> b<span class="dt">{0..4}</span>c <span class="co"># b0c b1c b2c b3c b4c</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="bu">echo</span> <span class="dt">{1..3}{A..C}</span> <span class="co"># 1A 1B 1C 2A 2B 2C 3A 3B 3C</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="va">start=</span>4</span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="va">end=</span>9</span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="bu">echo</span> <span class="dt">{</span><span class="va">$start</span><span class="dt">..</span><span class="va">$end</span><span class="dt">}</span> <span class="co"># {4..9}</span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="bu">eval</span> echo <span class="dt">{</span><span class="va">$start</span><span class="dt">..</span><span class="va">$end</span><span class="dt">}</span> <span class="co"># 4 5 6 7 8 9</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="bu">echo</span> <span class="dt">{Who,What,Why,When,How}</span>\? <span class="co"># Who? What? Why? When? How?</span></span></code></pre></div>
 <hr />
 </div>
 <div id="boolean" class="section level2">
@@ -523,32 +525,32 @@ div.tocify {
 <div id="and-or" class="section level3">
 <h3>AND / OR</h3>
 <p><code>&amp;&amp;</code> the AND operator - rhs will only be executed if lhs has exit status 0 (i.e. true) <code>||</code> the OR operator - rhs will only be executed if lhs has exit status non-0 (i.e. false)</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">true</span>  <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="st">&#39;line 1&#39;</span> <span class="co"># gets printed</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">false</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="st">&#39;line 2&#39;</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">true</span>  <span class="kw">||</span> <span class="bu">echo</span> <span class="st">&#39;line 3&#39;</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="fu">false</span> <span class="kw">||</span> <span class="bu">echo</span> <span class="st">&#39;line 4&#39;</span> <span class="co"># gets printed</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="fu">true</span>  <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f <span class="co"># t</span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="fu">false</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f <span class="co"># f</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">true</span>  <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="st">&#39;line 1&#39;</span> <span class="co"># gets printed</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">false</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="st">&#39;line 2&#39;</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">true</span>  <span class="kw">||</span> <span class="bu">echo</span> <span class="st">&#39;line 3&#39;</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="fu">false</span> <span class="kw">||</span> <span class="bu">echo</span> <span class="st">&#39;line 4&#39;</span> <span class="co"># gets printed</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="fu">true</span>  <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f <span class="co"># t</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="fu">false</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f <span class="co"># f</span></span></code></pre></div>
 </div>
 <div id="other-operators" class="section level3">
 <h3>other operators</h3>
 <p><code>=</code> string equal to <code>!=</code> string not equal to <code>=~</code> regex match operator <code>!</code> not operator (leave a space between the operator and the string)</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="va">mystring=</span>asdf</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">[[</span> <span class="va">$mystring</span> <span class="ot">=</span> <span class="st">&quot;hello&quot;</span><span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f</span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">[[</span> <span class="va">$mystring</span> <span class="ot">!=</span> <span class="st">&quot;hello&quot;</span><span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f</span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="kw">[[</span> <span class="va">$mystring</span> =~ [aeiou]<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f</span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="kw">[[</span> <span class="ot">!</span> <span class="va">$mystring</span> =~ [aeiou]<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="va">mystring=</span>asdf</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">[[</span> <span class="va">$mystring</span> <span class="ot">=</span> <span class="st">&quot;hello&quot;</span><span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="kw">[[</span> <span class="va">$mystring</span> <span class="ot">!=</span> <span class="st">&quot;hello&quot;</span><span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="kw">[[</span> <span class="va">$mystring</span> =~ [aeiou]<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f</span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="kw">[[</span> <span class="ot">!</span> <span class="va">$mystring</span> =~ [aeiou]<span class="kw"> ]]</span> <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> t <span class="kw">||</span> <span class="bu">echo</span> f</span></code></pre></div>
 <hr />
 </div>
 </div>
 <div id="conditions" class="section level2">
 <h2>conditions</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">[[</span> 4 <span class="ot">-gt</span> 3<span class="kw"> ]]</span> <span class="co"># 4 &gt; 3</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>[[<span class="ex">-e</span> path-to-file]] <span class="co"># file exists</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>[[<span class="ex">-d</span> path-to-dir]] <span class="co"># dir exists</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a>[[<span class="ex">-z</span> string]] <span class="co"># length of string is zero</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a>[[<span class="ex">-n</span> string]] <span class="co"># length of string is non-zero</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">[[</span> 4 <span class="ot">-gt</span> 3<span class="kw"> ]]</span> <span class="co"># 4 &gt; 3</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>[[<span class="ex">-e</span> path-to-file]] <span class="co"># file exists</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>[[<span class="ex">-d</span> path-to-dir]] <span class="co"># dir exists</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>[[<span class="ex">-z</span> string]] <span class="co"># length of string is zero</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>[[<span class="ex">-n</span> string]] <span class="co"># length of string is non-zero</span></span></code></pre></div>
 <p><code>-gt</code> Greater Than <code>-ge</code> Greater Than or Equal To <code>-eq</code> Equal <code>-ne</code> Not Equal <code>-le</code> Less Than or Equal To <code>-lt</code> Less Than <code>-e</code> A File Exists [[ -e $taxes_2016 ]] <code>-d</code> A Directory Exists [[ -d $photos ]] <code>-z</code> Length of String is Zero [[ -z $name ]] <code>-n</code> Length of String is Non-Zero [[ -n $name ]]</p>
 <hr />
 </div>
@@ -560,86 +562,86 @@ div.tocify {
 <div id="loops" class="section level2">
 <h2>for loops</h2>
 <p><code>for [variable] in [list] ; do [body] ; done</code></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">for</span> <span class="ex">ext</span> in gif jpg png<span class="kw">;</span> <span class="kw">do</span> <span class="bu">echo</span> <span class="va">$ext</span><span class="kw">;</span> <span class="kw">done</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">for</span> <span class="fu">file</span> in dir/*.csv<span class="kw">;</span> <span class="kw">do</span> <span class="bu">echo</span> <span class="va">$file</span><span class="kw">;</span> <span class="kw">done</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">for</span> <span class="ex">i</span> in <span class="dt">{1..3}</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="kw">do</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a>    <span class="bu">echo</span> <span class="st">&quot;loop </span><span class="va">$i</span><span class="st">&quot;</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="kw">done</span></span></code></pre></div>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="va">myarray=(</span>abc def ghi<span class="va">)</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="kw">for</span> <span class="ex">elem</span> in <span class="va">${myarray[*]}</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="kw">do</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a>    <span class="bu">echo</span> <span class="st">&quot;Current element: </span><span class="va">$elem</span><span class="st">&quot;</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="kw">done</span></span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">for</span> <span class="fu">file</span> in <span class="va">$(</span><span class="fu">ls</span><span class="va">)</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="kw">do</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a>    <span class="bu">echo</span> <span class="st">&quot;file </span><span class="va">$file</span><span class="st">&quot;</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="kw">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">for</span> <span class="ex">ext</span> in gif jpg png<span class="kw">;</span> <span class="kw">do</span> <span class="bu">echo</span> <span class="va">$ext</span><span class="kw">;</span> <span class="kw">done</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="kw">for</span> <span class="fu">file</span> in dir/*.csv<span class="kw">;</span> <span class="kw">do</span> <span class="bu">echo</span> <span class="va">$file</span><span class="kw">;</span> <span class="kw">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">for</span> <span class="ex">i</span> in <span class="dt">{1..3}</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="kw">do</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>    <span class="bu">echo</span> <span class="st">&quot;loop </span><span class="va">$i</span><span class="st">&quot;</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="kw">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="va">myarray=(</span>abc def ghi<span class="va">)</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="kw">for</span> <span class="ex">elem</span> in <span class="va">${myarray[*]}</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="kw">do</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>    <span class="bu">echo</span> <span class="st">&quot;Current element: </span><span class="va">$elem</span><span class="st">&quot;</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="kw">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">for</span> <span class="fu">file</span> in <span class="va">$(</span><span class="fu">ls</span><span class="va">)</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="kw">do</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>    <span class="bu">echo</span> <span class="st">&quot;file </span><span class="va">$file</span><span class="st">&quot;</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="kw">done</span></span></code></pre></div>
 <hr />
 </div>
 <div id="functions" class="section level2">
 <h2>functions</h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">function</span><span class="fu"> hello</span> <span class="kw">{</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>  <span class="bu">echo</span> <span class="st">&quot;Hello&quot;</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="kw">}</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="ex">hello</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="co"># Hello</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">function</span><span class="fu"> hello</span> <span class="kw">{</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="bu">echo</span> <span class="st">&quot;Hello&quot;</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="kw">}</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="ex">hello</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co"># Hello</span></span></code></pre></div>
 <p>You can use variables like <code>$1</code>, <code>$2</code>, and <code>$@</code> in order to provide arguments to functions, just like a Bash script.</p>
 <p>Variables defined within functions are available globally by default. To avoid this, use the <code>local</code> keyword when assigning variables within a function to ensure that variables outside of the function are not overwritten.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">function</span><span class="fu"> addseq</span> <span class="kw">{</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>  <span class="bu">local</span> <span class="va">sum=</span>0</span>
-<span id="cb11-3"><a href="#cb11-3"></a></span>
-<span id="cb11-4"><a href="#cb11-4"></a>  <span class="kw">for</span> <span class="ex">element</span> in <span class="va">$@</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a>  <span class="kw">do</span></span>
-<span id="cb11-6"><a href="#cb11-6"></a>    <span class="bu">let</span> sum=sum+<span class="va">$element</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a>  <span class="kw">done</span></span>
-<span id="cb11-8"><a href="#cb11-8"></a></span>
-<span id="cb11-9"><a href="#cb11-9"></a>  <span class="bu">echo</span> <span class="va">$sum</span></span>
-<span id="cb11-10"><a href="#cb11-10"></a><span class="kw">}</span></span>
-<span id="cb11-11"><a href="#cb11-11"></a></span>
-<span id="cb11-12"><a href="#cb11-12"></a><span class="va">my_sum=$(</span><span class="ex">addseq</span> 5 10 15 20<span class="va">)</span></span>
-<span id="cb11-13"><a href="#cb11-13"></a><span class="bu">echo</span> <span class="va">$my_sum</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">function</span><span class="fu"> addseq</span> <span class="kw">{</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="bu">local</span> <span class="va">sum=</span>0</span>
+<span id="cb12-3"><a href="#cb12-3"></a></span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="kw">for</span> <span class="ex">element</span> in <span class="va">$@</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a>  <span class="kw">do</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a>    <span class="bu">let</span> sum=sum+<span class="va">$element</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a>  <span class="kw">done</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a></span>
+<span id="cb12-9"><a href="#cb12-9"></a>  <span class="bu">echo</span> <span class="va">$sum</span></span>
+<span id="cb12-10"><a href="#cb12-10"></a><span class="kw">}</span></span>
+<span id="cb12-11"><a href="#cb12-11"></a></span>
+<span id="cb12-12"><a href="#cb12-12"></a><span class="va">my_sum=$(</span><span class="ex">addseq</span> 5 10 15 20<span class="va">)</span></span>
+<span id="cb12-13"><a href="#cb12-13"></a><span class="bu">echo</span> <span class="va">$my_sum</span></span></code></pre></div>
 <p>You can use the <code>source</code> command to import functions defined in a Bash script.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="bu">source</span> addseq.sh</span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="va">my_sum=$(</span><span class="ex">addseq</span> 5 10 15 20<span class="va">)</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="bu">echo</span> <span class="va">$my_sum</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="bu">source</span> addseq.sh</span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="va">my_sum=$(</span><span class="ex">addseq</span> 5 10 15 20<span class="va">)</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="bu">echo</span> <span class="va">$my_sum</span></span></code></pre></div>
 <hr />
 </div>
 <div id="if" class="section level2">
 <h2>if statements</h2>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="bu">echo</span> <span class="st">&quot;Start&quot;</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a></span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="kw">if [[</span> condition<span class="kw"> ]]</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="kw">then</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a>  <span class="bu">echo</span> <span class="st">&quot;a&quot;</span></span>
-<span id="cb13-6"><a href="#cb13-6"></a><span class="kw">else</span></span>
-<span id="cb13-7"><a href="#cb13-7"></a>  <span class="bu">echo</span> <span class="st">&quot;b&quot;</span></span>
-<span id="cb13-8"><a href="#cb13-8"></a><span class="kw">fi</span></span>
-<span id="cb13-9"><a href="#cb13-9"></a></span>
-<span id="cb13-10"><a href="#cb13-10"></a><span class="bu">echo</span> <span class="st">&quot;End&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="bu">echo</span> <span class="st">&quot;Start&quot;</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="kw">if [[</span> condition<span class="kw"> ]]</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="kw">then</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="bu">echo</span> <span class="st">&quot;a&quot;</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="kw">else</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a>  <span class="bu">echo</span> <span class="st">&quot;b&quot;</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a><span class="kw">fi</span></span>
+<span id="cb14-9"><a href="#cb14-9"></a></span>
+<span id="cb14-10"><a href="#cb14-10"></a><span class="bu">echo</span> <span class="st">&quot;End&quot;</span></span></code></pre></div>
 <div id="elif" class="section level3">
 <h3>elif</h3>
-<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">if [[</span> condition1<span class="kw"> ]]</span> <span class="kw">&amp;&amp; [[</span> condition2<span class="kw"> ]]</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="kw">then</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a>  <span class="bu">echo</span> <span class="st">&quot;a&quot;</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="kw">elif [[</span> condition3<span class="kw"> ]]</span> <span class="kw">|| [[</span> condition4<span class="kw"> ]]</span> <span class="kw">|| [[</span> condition5<span class="kw"> ]]</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a><span class="kw">then</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a>  <span class="bu">echo</span> <span class="st">&quot;b&quot;</span></span>
-<span id="cb14-7"><a href="#cb14-7"></a><span class="kw">else</span></span>
-<span id="cb14-8"><a href="#cb14-8"></a>  <span class="bu">echo</span> <span class="st">&quot;c&quot;</span></span>
-<span id="cb14-9"><a href="#cb14-9"></a><span class="kw">fi</span></span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">if [[</span> condition1<span class="kw"> ]]</span> <span class="kw">&amp;&amp; [[</span> condition2<span class="kw"> ]]</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="kw">then</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="bu">echo</span> <span class="st">&quot;a&quot;</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="kw">elif [[</span> condition3<span class="kw"> ]]</span> <span class="kw">|| [[</span> condition4<span class="kw"> ]]</span> <span class="kw">|| [[</span> condition5<span class="kw"> ]]</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="kw">then</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>  <span class="bu">echo</span> <span class="st">&quot;b&quot;</span></span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="kw">else</span></span>
+<span id="cb15-8"><a href="#cb15-8"></a>  <span class="bu">echo</span> <span class="st">&quot;c&quot;</span></span>
+<span id="cb15-9"><a href="#cb15-9"></a><span class="kw">fi</span></span></code></pre></div>
 <hr />
 </div>
 </div>
 <div id="redirect" class="section level2">
 <h2>redirection</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1"></a><span class="bu">command</span> <span class="op">&gt;</span> output-file <span class="co"># redirect output to new file  </span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="bu">command</span> <span class="op">&gt;&gt;</span> output-file <span class="co"># append output to existing file (create if it doesn&#39;t exist)</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="bu">command</span> <span class="op">&gt;</span> output-file <span class="co"># redirect output to new file  </span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="bu">command</span> <span class="op">&gt;&gt;</span> output-file <span class="co"># append output to existing file (create if it doesn&#39;t exist)</span></span></code></pre></div>
 <p>E.g.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">bash</span> script.sh <span class="op">&gt;</span> output.out</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">bash</span> script.sh <span class="op">&gt;</span> output.out</span></code></pre></div>
 <p>stdout and stderr:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="bu">command</span> <span class="op">&gt;</span> output-file <span class="op">2&gt;&amp;1</span> <span class="co"># redirect stdout and stderr to output file</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="bu">command</span> <span class="op">&gt;&gt;</span> output-file <span class="op">2&gt;&amp;1</span> <span class="co"># redirect stdout and stderr to output file</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="bu">command</span> <span class="op">&gt;</span> output-file <span class="op">2&gt;&amp;1</span> <span class="co"># redirect stdout and stderr to output file</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="bu">command</span> <span class="op">&gt;&gt;</span> output-file <span class="op">2&gt;&amp;1</span> <span class="co"># redirect stdout and stderr to output file</span></span></code></pre></div>
 <ul>
 <li>file descriptor <code>1</code> is the standard output (stdout)<br />
 </li>
@@ -692,16 +694,16 @@ div.tocify {
 </div>
 <div id="scripts" class="section level2">
 <h2>scripts</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="bu">echo</span> <span class="st">&#39;echo &quot;Arg list: $@&quot;</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="st">echo &quot;First arg: $1&quot;</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="st">echo &quot;Second arg: $2&quot;</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="st">echo &quot;Number of args: $#&quot;</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a><span class="st">&#39;</span> <span class="op">&gt;</span> script.sh </span></code></pre></div>
-<div class="sourceCode" id="cb19"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">bash</span> script.sh abc xyz</span>
-<span id="cb19-2"><a href="#cb19-2"></a><span class="co">## Arg list: abc xyz</span></span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="co">## First arg: abc</span></span>
-<span id="cb19-4"><a href="#cb19-4"></a><span class="co">## Second arg: xyz</span></span>
-<span id="cb19-5"><a href="#cb19-5"></a><span class="co">## Number of args: 2</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a><span class="bu">echo</span> <span class="st">&#39;echo &quot;Arg list: $@&quot;</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="st">echo &quot;First arg: $1&quot;</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="st">echo &quot;Second arg: $2&quot;</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="st">echo &quot;Number of args: $#&quot;</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="st">&#39;</span> <span class="op">&gt;</span> script.sh </span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">bash</span> script.sh abc xyz</span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="co">## Arg list: abc xyz</span></span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="co">## First arg: abc</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="co">## Second arg: xyz</span></span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="co">## Number of args: 2</span></span></code></pre></div>
 <ul>
 <li><code>$1</code> first command-line parameter given to the script</li>
 <li><code>$2</code> second command-line parameter given to the script</li>
@@ -712,12 +714,12 @@ div.tocify {
 </div>
 <div id="while" class="section level2">
 <h2>while</h2>
-<div class="sourceCode" id="cb20"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1"></a><span class="va">count=</span>3</span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="kw">while [[</span> <span class="va">$count</span> <span class="ot">-gt</span> 0<span class="kw"> ]]</span></span>
-<span id="cb20-3"><a href="#cb20-3"></a><span class="kw">do</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a>  <span class="bu">echo</span> <span class="st">&quot;count is equal to </span><span class="va">$count</span><span class="st">&quot;</span></span>
-<span id="cb20-5"><a href="#cb20-5"></a>  <span class="bu">let</span> count=<span class="va">$count</span>-1</span>
-<span id="cb20-6"><a href="#cb20-6"></a><span class="kw">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a><span class="va">count=</span>3</span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="kw">while [[</span> <span class="va">$count</span> <span class="ot">-gt</span> 0<span class="kw"> ]]</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="kw">do</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>  <span class="bu">echo</span> <span class="st">&quot;count is equal to </span><span class="va">$count</span><span class="st">&quot;</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>  <span class="bu">let</span> count=<span class="va">$count</span>-1</span>
+<span id="cb21-6"><a href="#cb21-6"></a><span class="kw">done</span></span></code></pre></div>
 <hr />
 </div>
 <div id="wildcards" class="section level2">
@@ -728,10 +730,10 @@ div.tocify {
 <li><code>[...]</code> matches any of the characters in the square brackets</li>
 <li><code>{...}</code> matches any of the comma-separated patterns inside the brackets, e.g. <code>{*.txt, *.csv}</code></li>
 </ul>
-<div class="sourceCode" id="cb21"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">ls</span> 2016*</span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="fu">ls</span> *.jpg</span>
-<span id="cb21-3"><a href="#cb21-3"></a><span class="fu">ls</span> *abc*</span>
-<span id="cb21-4"><a href="#cb21-4"></a><span class="fu">mv</span> 2017-* 2017/</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">ls</span> 2016*</span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="fu">ls</span> *.jpg</span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="fu">ls</span> *abc*</span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="fu">mv</span> 2017-* 2017/</span></code></pre></div>
 <hr />
 </div>
 <div id="vars" class="section level2">
@@ -740,40 +742,40 @@ div.tocify {
 <li><code>Environment variables</code> = permanent variables</li>
 <li><code>Shell variables</code> = local variables</li>
 </ul>
-<div class="sourceCode" id="cb22"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># shell version</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="bu">echo</span> <span class="va">$SHELL</span></span>
-<span id="cb22-3"><a href="#cb22-3"></a><span class="co">#  /usr/local/bin/zsh</span></span></code></pre></div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># print all environment variables</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a><span class="kw">set</span></span>
-<span id="cb23-3"><a href="#cb23-3"></a></span>
-<span id="cb23-4"><a href="#cb23-4"></a><span class="co"># example environment variables</span></span>
-<span id="cb23-5"><a href="#cb23-5"></a><span class="bu">echo</span> <span class="va">$PWD</span></span>
-<span id="cb23-6"><a href="#cb23-6"></a><span class="bu">echo</span> <span class="va">$HOME</span></span>
-<span id="cb23-7"><a href="#cb23-7"></a><span class="bu">echo</span> <span class="va">$USER</span></span>
-<span id="cb23-8"><a href="#cb23-8"></a><span class="bu">echo</span> <span class="va">$SHELL</span></span>
-<span id="cb23-9"><a href="#cb23-9"></a></span>
-<span id="cb23-10"><a href="#cb23-10"></a><span class="co"># make a new local variable</span></span>
-<span id="cb23-11"><a href="#cb23-11"></a><span class="va">DIR=</span>~/Downloads <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="va">$DIR</span></span>
-<span id="cb23-12"><a href="#cb23-12"></a><span class="bu">cd</span> <span class="va">$DIR</span> <span class="kw">&amp;&amp;</span> <span class="bu">pwd</span></span>
-<span id="cb23-13"><a href="#cb23-13"></a><span class="bu">cd</span> - <span class="kw">&amp;&amp;</span> <span class="bu">pwd</span></span></code></pre></div>
-<div class="sourceCode" id="cb24"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># use the output of a command as a variable</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a><span class="bu">echo</span> <span class="st">&#39;my zsh is installed here:&#39;</span> <span class="va">$(</span><span class="fu">which</span> zsh<span class="va">)</span></span>
-<span id="cb24-3"><a href="#cb24-3"></a><span class="co">#  my zsh is installed here: /bin/zsh</span></span></code></pre></div>
-<div class="sourceCode" id="cb25"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="va">WD=$(</span><span class="bu">pwd</span><span class="va">)</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a><span class="bu">echo</span> <span class="va">$WD</span></span>
-<span id="cb25-3"><a href="#cb25-3"></a></span>
-<span id="cb25-4"><a href="#cb25-4"></a><span class="va">TODAY=$(</span><span class="fu">date</span> +%Y%m%d<span class="va">)</span></span>
-<span id="cb25-5"><a href="#cb25-5"></a><span class="bu">echo</span> <span class="va">$TODAY</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># shell version</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="bu">echo</span> <span class="va">$SHELL</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="co">#  /usr/local/bin/zsh</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># print all environment variables</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="kw">set</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a></span>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="co"># example environment variables</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a><span class="bu">echo</span> <span class="va">$PWD</span></span>
+<span id="cb24-6"><a href="#cb24-6"></a><span class="bu">echo</span> <span class="va">$HOME</span></span>
+<span id="cb24-7"><a href="#cb24-7"></a><span class="bu">echo</span> <span class="va">$USER</span></span>
+<span id="cb24-8"><a href="#cb24-8"></a><span class="bu">echo</span> <span class="va">$SHELL</span></span>
+<span id="cb24-9"><a href="#cb24-9"></a></span>
+<span id="cb24-10"><a href="#cb24-10"></a><span class="co"># make a new local variable</span></span>
+<span id="cb24-11"><a href="#cb24-11"></a><span class="va">DIR=</span>~/Downloads <span class="kw">&amp;&amp;</span> <span class="bu">echo</span> <span class="va">$DIR</span></span>
+<span id="cb24-12"><a href="#cb24-12"></a><span class="bu">cd</span> <span class="va">$DIR</span> <span class="kw">&amp;&amp;</span> <span class="bu">pwd</span></span>
+<span id="cb24-13"><a href="#cb24-13"></a><span class="bu">cd</span> - <span class="kw">&amp;&amp;</span> <span class="bu">pwd</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># use the output of a command as a variable</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="bu">echo</span> <span class="st">&#39;my zsh is installed here:&#39;</span> <span class="va">$(</span><span class="fu">which</span> zsh<span class="va">)</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="co">#  my zsh is installed here: /bin/zsh</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1"></a><span class="va">WD=$(</span><span class="bu">pwd</span><span class="va">)</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="bu">echo</span> <span class="va">$WD</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a></span>
+<span id="cb26-4"><a href="#cb26-4"></a><span class="va">TODAY=$(</span><span class="fu">date</span> +%Y%m%d<span class="va">)</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a><span class="bu">echo</span> <span class="va">$TODAY</span></span></code></pre></div>
 <hr />
 </div>
 <div id="multiple-lines" class="section level2">
 <h2>multiple lines</h2>
 <div id="single-command" class="section level3">
 <h3>single command</h3>
-<div class="sourceCode" id="cb26"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1"></a><span class="ex">use</span> backslashes \</span>
-<span id="cb26-2"><a href="#cb26-2"></a>to break up commands \</span>
-<span id="cb26-3"><a href="#cb26-3"></a>across multiple \</span>
-<span id="cb26-4"><a href="#cb26-4"></a>lines</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1"></a><span class="ex">use</span> backslashes \</span>
+<span id="cb27-2"><a href="#cb27-2"></a>to break up commands \</span>
+<span id="cb27-3"><a href="#cb27-3"></a>across multiple \</span>
+<span id="cb27-4"><a href="#cb27-4"></a>lines</span></code></pre></div>
 </div>
 <div id="multiple-commmands" class="section level3">
 <h3>multiple commmands</h3>
@@ -785,6 +787,43 @@ div.tocify {
 <p><code>|&amp;</code> : shorthand for <code>2&gt;&amp;1</code> - both standard output and standard error of command on left are are used as the (standard) input to the command on right</p>
 <hr />
 </div>
+</div>
+<div id="colours" class="section level2">
+<h2>colours</h2>
+<div class="sourceCode" id="cb28"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1"></a><span class="va">black=</span><span class="st">&#39;\033[0;30m&#39;</span>  </span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="va">dark_gray=</span><span class="st">&#39;\033[1;30m&#39;</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a><span class="va">red=</span><span class="st">&#39;\033[0;31m&#39;</span>  </span>
+<span id="cb28-4"><a href="#cb28-4"></a><span class="va">light_red=</span><span class="st">&#39;\033[1;31m&#39;</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a><span class="va">green=</span><span class="st">&#39;\033[0;32m&#39;</span>  </span>
+<span id="cb28-6"><a href="#cb28-6"></a><span class="va">light_green=</span><span class="st">&#39;\033[1;32m&#39;</span></span>
+<span id="cb28-7"><a href="#cb28-7"></a><span class="va">brown_orange=</span><span class="st">&#39;\033[0;33m&#39;</span>  </span>
+<span id="cb28-8"><a href="#cb28-8"></a><span class="va">yellow=</span><span class="st">&#39;\033[1;33m&#39;</span></span>
+<span id="cb28-9"><a href="#cb28-9"></a><span class="va">blue=</span><span class="st">&#39;\033[0;34m&#39;</span>  </span>
+<span id="cb28-10"><a href="#cb28-10"></a><span class="va">light_blue=</span><span class="st">&#39;\033[1;34m&#39;</span></span>
+<span id="cb28-11"><a href="#cb28-11"></a><span class="va">purple=</span><span class="st">&#39;\033[0;35m&#39;</span>  </span>
+<span id="cb28-12"><a href="#cb28-12"></a><span class="va">light_purple=</span><span class="st">&#39;\033[1;35m&#39;</span></span>
+<span id="cb28-13"><a href="#cb28-13"></a><span class="va">cyan=</span><span class="st">&#39;\033[0;36m&#39;</span>  </span>
+<span id="cb28-14"><a href="#cb28-14"></a><span class="va">light_cyan=</span><span class="st">&#39;\033[1;36m&#39;</span></span>
+<span id="cb28-15"><a href="#cb28-15"></a><span class="va">light_gray=</span><span class="st">&#39;\033[0;37m&#39;</span>  </span>
+<span id="cb28-16"><a href="#cb28-16"></a><span class="va">white=</span><span class="st">&#39;\033[1;37m&#39;</span></span>
+<span id="cb28-17"><a href="#cb28-17"></a><span class="va">none=</span><span class="st">&#39;\033[0m&#39;</span></span>
+<span id="cb28-18"><a href="#cb28-18"></a></span>
+<span id="cb28-19"><a href="#cb28-19"></a><span class="bu">echo</span> <span class="va">${black}</span>black<span class="va">${none}</span><span class="dt">\\</span>n\</span>
+<span id="cb28-20"><a href="#cb28-20"></a>     <span class="va">${dark_gray}</span>dark_gray<span class="va">${none}</span><span class="dt">\\</span>n\</span>
+<span id="cb28-21"><a href="#cb28-21"></a>     <span class="va">${red}</span>red<span class="va">${none}</span><span class="dt">\\</span>n\</span>
+<span id="cb28-22"><a href="#cb28-22"></a>     <span class="va">${light_red}</span>light_red<span class="va">${none}</span><span class="dt">\\</span>n\</span>
+<span id="cb28-23"><a href="#cb28-23"></a>     <span class="va">${green}</span>green<span class="va">${none}</span><span class="dt">\\</span>n\</span>
+<span id="cb28-24"><a href="#cb28-24"></a>     <span class="va">${light_green}</span>light_green<span class="va">${none}</span><span class="dt">\\</span>n\</span>
+<span id="cb28-25"><a href="#cb28-25"></a>     <span class="va">${brown_orange}</span>brown_orange<span class="va">${none}</span><span class="dt">\\</span>n\</span>
+<span id="cb28-26"><a href="#cb28-26"></a>     <span class="va">${yellow}</span>yellow<span class="va">${none}</span><span class="dt">\\</span>n\</span>
+<span id="cb28-27"><a href="#cb28-27"></a>     <span class="va">${blue}</span>blue<span class="va">${none}</span><span class="dt">\\</span>n\</span>
+<span id="cb28-28"><a href="#cb28-28"></a>     <span class="va">${light_blue}</span>light_blue<span class="va">${none}</span><span class="dt">\\</span>n\</span>
+<span id="cb28-29"><a href="#cb28-29"></a>     <span class="va">${purple}</span>purple<span class="va">${none}</span><span class="dt">\\</span>n\</span>
+<span id="cb28-30"><a href="#cb28-30"></a>     <span class="va">${light_purple}</span>light_purple<span class="va">${none}</span><span class="dt">\\</span>n\</span>
+<span id="cb28-31"><a href="#cb28-31"></a>     <span class="va">${cyan}</span>cyan<span class="va">${none}</span><span class="dt">\\</span>n\</span>
+<span id="cb28-32"><a href="#cb28-32"></a>     <span class="va">${light_cyan}</span>light_cyan<span class="va">${none}</span><span class="dt">\\</span>n\</span>
+<span id="cb28-33"><a href="#cb28-33"></a>     <span class="va">${white}</span>white<span class="va">${none}</span></span></code></pre></div>
+<hr />
 </div>
 <div id="eof" class="section level2">
 <h2>EOF</h2>
