@@ -24,6 +24,14 @@ navbar:
         - text: "zsh"
           href: zsh.html
   right:
+    - text: "how2"
+      menu:
+        - text: "how2-py"
+          href: https://dkidney.github.io/how2-py/
+        - text: "how2-sql"
+          href: https://dkidney.github.io/how2-sql/
+        - text: "how2-r"
+          href: https://dkidney.github.io/how2-r/
     - icon: fa-github fa-lg
       href: https://github.com/dkidney/how2-cli
     - icon: fa-linkedin fa-lg
