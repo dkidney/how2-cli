@@ -283,7 +283,7 @@ grep -rnw 'pattern' path
 `-i` case insensitive  
 `-l` print the names of files that contain matches, not the matches  
 `-n` print line numbers for matching lines  
-`-r` recursive
+`-r` recursive  
 `-v` invert/complement/negation - i.e. show non-matching lines  
 `-w` expression is searched for as a word
 
@@ -386,7 +386,7 @@ let "myvar = 5, myvar *= 2"; echo $myvar
 # set varone to 1, set vartwo to the value of varone, then increment the value of varone by one
 let "varone = 1" "vartwo = varone++"; echo $varone, $vartwo
 # 2, 1
-``
+```
 
 
 *********************************************************************
@@ -615,10 +615,18 @@ Stream editor.
 
 ## scp {#scp}
 
-E.g. copy all R files
+Secure copy.
 
 ```sh
-scp *.R $DNS:~
+# copy a file
+scp myfile.txt user@dest:/path
+
+# copy all .txt files
+scp *.txt user@dest:/path
+
+# copy a directory
+scp -r mydir user@dest:/path
+
 ```
 
 *********************************************************************

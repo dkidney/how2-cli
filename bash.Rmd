@@ -408,6 +408,8 @@ lines
 
 ## colours
 
+* https://en.wikipedia.org/wiki/ANSI_escape_code#Colors
+
 ```sh
 black='\033[0;30m'  
 dark_gray='\033[1;30m'
