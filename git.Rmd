@@ -86,6 +86,9 @@ git checkout branch-name
 
 # push new branch to remote 
 git push origin branch-name
+
+# set the remote as upstream 
+git push --set-upstream origin vdna_eu_refresh_202007
 ```
 
 #### delete {#git-branch-delete}
