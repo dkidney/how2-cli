@@ -10,19 +10,29 @@ source("_knitr_config.R")
 
 *********************************************************************
 
-<!-- * https://git-scm.com/docs/gitglossary   -->
-<!-- * https://git-scm.com/docs   -->
-<!-- * https://git-scm.com/book/en/v2   -->
+## links
 
-<!-- * https://help.github.com/en/articles/github-glossary   -->
-<!-- * https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf   -->
+git home: 
 
-<!-- * https://www.atlassian.com/git/glossary/terminology   -->
-<!-- * https://www.atlassian.com/git/tutorials   -->
+* [glossary](https://git-scm.com/docs/gitglossary)  
+* [reference](https://git-scm.com/docs)  
+* [book](https://git-scm.com/book/en/v2)  
 
-<!-- * https://www.git-tower.com/learn/git/ebook/en/command-line/   -->
-<!-- * https://happygitwithr.com/   -->
-<!-- * https://www.youtube.com/githubguides   -->
+github:  
+
+* [glossary](https://help.github.com/en/articles/github-glossary)  
+* [cheat sheet](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf)    
+
+atlassian:
+
+* [glossary](https://www.atlassian.com/git/glossary/terminology)  
+* [tutorials](https://www.atlassian.com/git/tutorials)   
+
+misc:  
+
+* [happygitwithr](https://happygitwithr.com/)  
+* [git tower](https://www.git-tower.com/learn/git/ebook/en/command-line/)  
+* [youtube github guides](https://www.youtube.com/githubguides)  
 
 *********************************************************************
 
@@ -35,7 +45,7 @@ source("_knitr_config.R")
 ### undo commits
 * [amend a commit that hasn't been pushed](#git-commit-amend)   
 * [undo a commit that hasn't been pushed](#git-reset)   
-* [undo a commit that HAS been pushed](#git-revert-last-pushed-commit)
+* [undo the last pushed commit](#git-revert-last-pushed-commit)
 <!-- * delete a commit - see [git rebase](#git-rebase) -->
 
 ### manage branches
@@ -194,6 +204,13 @@ git revert 1f3601e4550d98fc6944ee2c52b2d4b9f4db96f3
 
 # push the new commit
 git push
+```
+
+#### undo a range of pushed commits {#git-revert-range-pushed-commits}
+
+```sh
+# reverts the commits between and including the specified commits
+git revert <oldest_commit_hash>..<latest_commit_hash>
 ```
 
 *********************************************************************

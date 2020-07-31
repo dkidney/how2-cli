@@ -505,17 +505,38 @@ div.tocify {
 
 
 <hr />
-<!-- * https://git-scm.com/docs/gitglossary   -->
-<!-- * https://git-scm.com/docs   -->
-<!-- * https://git-scm.com/book/en/v2   -->
-<!-- * https://help.github.com/en/articles/github-glossary   -->
-<!-- * https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf   -->
-<!-- * https://www.atlassian.com/git/glossary/terminology   -->
-<!-- * https://www.atlassian.com/git/tutorials   -->
-<!-- * https://www.git-tower.com/learn/git/ebook/en/command-line/   -->
-<!-- * https://happygitwithr.com/   -->
-<!-- * https://www.youtube.com/githubguides   -->
+<div id="links" class="section level2">
+<h2>links</h2>
+<p>git home:</p>
+<ul>
+<li><a href="https://git-scm.com/docs/gitglossary">glossary</a><br />
+</li>
+<li><a href="https://git-scm.com/docs">reference</a><br />
+</li>
+<li><a href="https://git-scm.com/book/en/v2">book</a></li>
+</ul>
+<p>github:</p>
+<ul>
+<li><a href="https://help.github.com/en/articles/github-glossary">glossary</a><br />
+</li>
+<li><a href="https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf">cheat sheet</a></li>
+</ul>
+<p>atlassian:</p>
+<ul>
+<li><a href="https://www.atlassian.com/git/glossary/terminology">glossary</a><br />
+</li>
+<li><a href="https://www.atlassian.com/git/tutorials">tutorials</a></li>
+</ul>
+<p>misc:</p>
+<ul>
+<li><a href="https://happygitwithr.com/">happygitwithr</a><br />
+</li>
+<li><a href="https://www.git-tower.com/learn/git/ebook/en/command-line/">git tower</a><br />
+</li>
+<li><a href="https://www.youtube.com/githubguides">youtube github guides</a></li>
+</ul>
 <hr />
+</div>
 <div id="faqs" class="section level2">
 <h2>faqs</h2>
 <div id="create-repos" class="section level3">
@@ -533,7 +554,7 @@ div.tocify {
 </li>
 <li><a href="#git-reset">undo a commit that hasn’t been pushed</a><br />
 </li>
-<li><a href="#git-revert-last-pushed-commit">undo a commit that HAS been pushed</a> <!-- * delete a commit - see [git rebase](#git-rebase) --></li>
+<li><a href="#git-revert-last-pushed-commit">undo the last pushed commit</a> <!-- * delete a commit - see [git rebase](#git-rebase) --></li>
 </ul>
 </div>
 <div id="manage-branches" class="section level3">
@@ -670,6 +691,11 @@ div.tocify {
 <span id="cb8-4"><a href="#cb8-4"></a></span>
 <span id="cb8-5"><a href="#cb8-5"></a><span class="co"># push the new commit</span></span>
 <span id="cb8-6"><a href="#cb8-6"></a><span class="fu">git</span> push</span></code></pre></div>
+</div>
+<div id="git-revert-range-pushed-commits" class="section level4">
+<h4>undo a range of pushed commits</h4>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># reverts the commits between and including the specified commits</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">git</span> revert <span class="op">&lt;</span>oldest_commit_hash<span class="op">&gt;</span>..<span class="op">&lt;</span>latest_commit_hash<span class="op">&gt;</span></span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -693,12 +719,12 @@ div.tocify {
 <li>your pages should now be available at <a href="http://dkidney.github.io/how2-cli" class="uri">http://dkidney.github.io/how2-cli</a></li>
 </ul>
 <p>E.g. add a link in the readme:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">touch</span> README.md</span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="bu">echo</span> <span class="st">&#39;&#39;</span> <span class="op">&gt;&gt;</span> README.md</span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="bu">echo</span> <span class="st">&#39;http://dkidney.github.io/how2-cli&#39;</span> <span class="op">&gt;&gt;</span> README.md</span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="fu">git</span> add README.md</span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="fu">git</span> commit -m <span class="st">&quot;added github pages link to readme&quot;</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="fu">git</span> push</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">touch</span> README.md</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="bu">echo</span> <span class="st">&#39;&#39;</span> <span class="op">&gt;&gt;</span> README.md</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="bu">echo</span> <span class="st">&#39;http://dkidney.github.io/how2-cli&#39;</span> <span class="op">&gt;&gt;</span> README.md</span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="fu">git</span> add README.md</span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="fu">git</span> commit -m <span class="st">&quot;added github pages link to readme&quot;</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="fu">git</span> push</span></code></pre></div>
 <hr />
 </div>
 </div>
