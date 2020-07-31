@@ -585,17 +585,14 @@ div.tocify {
 <h3>git branch</h3>
 <div id="git-branch-create" class="section level4">
 <h4>create</h4>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">git</span> checkout -b branch-name</span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">git</span> checkout -B branch-name</span>
 <span id="cb2-2"><a href="#cb2-2"></a></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="co"># is shorthand for</span></span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="fu">git</span> branch branch-name</span>
 <span id="cb2-5"><a href="#cb2-5"></a><span class="fu">git</span> checkout branch-name</span>
 <span id="cb2-6"><a href="#cb2-6"></a></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="co"># push new branch to remote </span></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="fu">git</span> push origin branch-name</span>
-<span id="cb2-9"><a href="#cb2-9"></a></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="co"># set the remote as upstream </span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="fu">git</span> push --set-upstream origin vdna_eu_refresh_202007</span></code></pre></div>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co"># push new branch to remote and set the remote as upstream </span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="fu">git</span> push -u origin branch-name</span></code></pre></div>
 </div>
 <div id="git-branch-delete" class="section level4">
 <h4>delete</h4>
