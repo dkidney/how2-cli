@@ -518,18 +518,33 @@ div.tocify {
 <hr />
 <div id="faqs" class="section level2">
 <h2>faqs</h2>
+<div id="create-repos" class="section level3">
+<h3>create repos</h3>
 <ul>
-<li>amend a commit that hasn’t been pushed - see <a href="#git-commit-amend">git commit –amend</a><br />
+<li><a href="#git-remote">create a repo from a local directory</a><br />
 </li>
-<li>undo a commit that hasn’t been pushed - see <a href="#git-reset">git reset</a><br />
-<!-- * delete a commit - see [git rebase](#git-rebase) --></li>
-<li>delete a branch - see <a href="#git-branch">git branch</a><br />
+<li><a href="#git-clone">clone a repo from github</a></li>
+</ul>
+</div>
+<div id="undo-commits" class="section level3">
+<h3>undo commits</h3>
+<ul>
+<li><a href="#git-commit-amend">amend a commit that hasn’t been pushed</a><br />
 </li>
-<li>create a repo from a local directory - see <a href="#git-remote">git remote</a><br />
+<li><a href="#git-reset">undo a commit that hasn’t been pushed</a><br />
 </li>
-<li>clone a repo from github- see <a href="#git-clone">git clone</a></li>
+<li><a href="#git-revert-last-pushed-commit">undo a commit that HAS been pushed</a> <!-- * delete a commit - see [git rebase](#git-rebase) --></li>
+</ul>
+</div>
+<div id="manage-branches" class="section level3">
+<h3>manage branches</h3>
+<ul>
+<li><a href="#git-branch-create">create a branch</a><br />
+</li>
+<li><a href="#git-branch-delete">delete a branch</a></li>
 </ul>
 <hr />
+</div>
 </div>
 <div id="installation" class="section level2">
 <h2>installation</h2>
@@ -547,8 +562,27 @@ div.tocify {
 <hr />
 <div id="git-branch" class="section level3">
 <h3>git branch</h3>
-<p><em>TODO</em></p>
+<div id="git-branch-create" class="section level4">
+<h4>create</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">git</span> checkout -b branch-name</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># is shorthand for</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="fu">git</span> branch branch-name</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">git</span> checkout branch-name</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co"># push new branch to remote </span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="fu">git</span> push origin branch-name</span></code></pre></div>
+</div>
+<div id="git-branch-delete" class="section level4">
+<h4>delete</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># delete your local branch</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">git</span> branch -d branch-name</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">git</span> branch -D branch-name <span class="co"># forces the delete</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co"># delete the remote branch</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="fu">git</span> push origin --delete branch-name</span></code></pre></div>
 <hr />
+</div>
 </div>
 <div id="git-clone" class="section level3">
 <h3>git clone</h3>
@@ -560,19 +594,19 @@ div.tocify {
 <div id="git-commit-amend" class="section level4">
 <h4>–amend</h4>
 <p>E.g. amend the most recent commit, provided you haven’t pushed it:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># change the commit message</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">got</span> commit --amend <span class="co"># opens an editor</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># change the content of the commit</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">git</span> add my-amended-file.txt</span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="fu">git</span> commit --amend</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># change the commit message</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="ex">got</span> commit --amend <span class="co"># opens an editor</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># change the content of the commit</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="fu">git</span> add my-amended-file.txt</span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="fu">git</span> commit --amend</span></code></pre></div>
 <hr />
 </div>
 </div>
 <div id="git-config" class="section level3">
 <h3>git config</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># view all of your settings and where they are coming from using:</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">git</span> config --list --show-origin</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># view all of your settings and where they are coming from using:</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">git</span> config --list --show-origin</span></code></pre></div>
 <hr />
 </div>
 <div id="git-rebase" class="section level3">
@@ -589,45 +623,55 @@ div.tocify {
 <h3>git remote</h3>
 <p>Manage remotes.</p>
 <p>E.g. create a remote repo from a local directory:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># go to github and make the remote repo, </span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># then do the following from your local machine:</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># initialise your local repo if you haven&#39;t already done so</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="fu">git</span> init</span>
-<span id="cb4-6"><a href="#cb4-6"></a></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co"># make at least one commit in your local repo to create the master branch</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="fu">touch</span> README.md</span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="bu">echo</span> <span class="st">&quot;# how2-cli&quot;</span> <span class="op">&gt;</span> README.md</span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="fu">git</span> add README.md</span>
-<span id="cb4-11"><a href="#cb4-11"></a><span class="fu">git</span> commit -m <span class="st">&quot;first commit&quot;</span></span>
-<span id="cb4-12"><a href="#cb4-12"></a></span>
-<span id="cb4-13"><a href="#cb4-13"></a><span class="co"># add a new remote </span></span>
-<span id="cb4-14"><a href="#cb4-14"></a><span class="fu">git</span> remote add origin https://github.com/dkidney/how2-cli.git</span>
-<span id="cb4-15"><a href="#cb4-15"></a></span>
-<span id="cb4-16"><a href="#cb4-16"></a><span class="co"># see which remote repo(s) the local repo is connected to (should be &#39;origin&#39;)</span></span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="fu">git</span> remote</span>
-<span id="cb4-18"><a href="#cb4-18"></a><span class="fu">git</span> remote -v <span class="co"># for more info</span></span>
-<span id="cb4-19"><a href="#cb4-19"></a></span>
-<span id="cb4-20"><a href="#cb4-20"></a><span class="co"># set the origin as the default remote repository</span></span>
-<span id="cb4-21"><a href="#cb4-21"></a><span class="fu">git</span> push -u origin master</span>
-<span id="cb4-22"><a href="#cb4-22"></a></span>
-<span id="cb4-23"><a href="#cb4-23"></a><span class="co"># remove the remote if you ever need to </span></span>
-<span id="cb4-24"><a href="#cb4-24"></a><span class="fu">git</span> remote rm origin</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># go to github and make the remote repo, </span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co"># then do the following from your local machine:</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># initialise your local repo if you haven&#39;t already done so</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="fu">git</span> init</span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co"># make at least one commit in your local repo to create the master branch</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="fu">touch</span> README.md</span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="bu">echo</span> <span class="st">&quot;# how2-cli&quot;</span> <span class="op">&gt;</span> README.md</span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="fu">git</span> add README.md</span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="fu">git</span> commit -m <span class="st">&quot;first commit&quot;</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="co"># add a new remote </span></span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="fu">git</span> remote add origin https://github.com/dkidney/how2-cli.git</span>
+<span id="cb6-15"><a href="#cb6-15"></a></span>
+<span id="cb6-16"><a href="#cb6-16"></a><span class="co"># see which remote repo(s) the local repo is connected to (should be &#39;origin&#39;)</span></span>
+<span id="cb6-17"><a href="#cb6-17"></a><span class="fu">git</span> remote</span>
+<span id="cb6-18"><a href="#cb6-18"></a><span class="fu">git</span> remote -v <span class="co"># for more info</span></span>
+<span id="cb6-19"><a href="#cb6-19"></a></span>
+<span id="cb6-20"><a href="#cb6-20"></a><span class="co"># set the origin as the default remote repository</span></span>
+<span id="cb6-21"><a href="#cb6-21"></a><span class="fu">git</span> push -u origin master</span>
+<span id="cb6-22"><a href="#cb6-22"></a></span>
+<span id="cb6-23"><a href="#cb6-23"></a><span class="co"># remove the remote if you ever need to </span></span>
+<span id="cb6-24"><a href="#cb6-24"></a><span class="fu">git</span> remote rm origin</span></code></pre></div>
 <hr />
 </div>
 <div id="git-reset" class="section level3">
 <h3>git reset</h3>
 <p>E.g. undo the last commit, provided it hasn’t been pushed:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># preserve changes in undone revisions</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">git</span> reset --soft HEAD~1</span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># DELETE changes in undone revisions</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="fu">git</span> reset --hard HEAD~1</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># preserve changes in undone revisions</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">git</span> reset --soft HEAD~1</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># DELETE changes in undone revisions</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="fu">git</span> reset --hard HEAD~1</span></code></pre></div>
 <hr />
 </div>
 <div id="git-revert" class="section level3">
 <h3>git revert</h3>
+<div id="git-revert-last-pushed-commit" class="section level4">
+<h4>undo the last pushed commit</h4>
+<p>This makes a new commit that reverses the changes in the previous pushed commit.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># get the commit hash (e.g. from Github)</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">git</span> revert 1f3601e4550d98fc6944ee2c52b2d4b9f4db96f3</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co"># editor will automatically open to modify the commit message (in vim type :wq to exit)</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co"># push the new commit</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="fu">git</span> push</span></code></pre></div>
 <hr />
+</div>
 </div>
 </div>
 <div id="github" class="section level2">
@@ -649,12 +693,12 @@ div.tocify {
 <li>your pages should now be available at <a href="http://dkidney.github.io/how2-cli" class="uri">http://dkidney.github.io/how2-cli</a></li>
 </ul>
 <p>E.g. add a link in the readme:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">touch</span> README.md</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="bu">echo</span> <span class="st">&#39;&#39;</span> <span class="op">&gt;&gt;</span> README.md</span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="bu">echo</span> <span class="st">&#39;http://dkidney.github.io/how2-cli&#39;</span> <span class="op">&gt;&gt;</span> README.md</span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="fu">git</span> add README.md</span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="fu">git</span> commit -m <span class="st">&quot;added github pages link to readme&quot;</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="fu">git</span> push</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">touch</span> README.md</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="bu">echo</span> <span class="st">&#39;&#39;</span> <span class="op">&gt;&gt;</span> README.md</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="bu">echo</span> <span class="st">&#39;http://dkidney.github.io/how2-cli&#39;</span> <span class="op">&gt;&gt;</span> README.md</span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="fu">git</span> add README.md</span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="fu">git</span> commit -m <span class="st">&quot;added github pages link to readme&quot;</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="fu">git</span> push</span></code></pre></div>
 <hr />
 </div>
 </div>

@@ -28,12 +28,19 @@ source("_knitr_config.R")
 
 ## faqs
 
-* amend a commit that hasn't been pushed - see [git commit --amend](#git-commit-amend)   
-* undo a commit that hasn't been pushed - see [git reset](#git-reset)   
+### create repos
+* [create a repo from a local directory](#git-remote)  
+* [clone a repo from github](#git-clone)  
+
+### undo commits
+* [amend a commit that hasn't been pushed](#git-commit-amend)   
+* [undo a commit that hasn't been pushed](#git-reset)   
+* [undo a commit that HAS been pushed](#git-revert-last-pushed-commit)
 <!-- * delete a commit - see [git rebase](#git-rebase) -->
-* delete a branch - see [git branch](#git-branch)   
-* create a repo from a local directory - see [git remote](#git-remote)  
-* clone a repo from github- see [git clone](#git-clone)  
+
+### manage branches
+* [create a branch](#git-branch-create)  
+* [delete a branch](#git-branch-delete)  
 
 *********************************************************************
 
@@ -58,7 +65,29 @@ git config --global user.email myName@email.com
 
 ### git branch {#git-branch}
 
-*TODO*
+#### create {#git-branch-create}
+
+```sh
+git checkout -b branch-name
+
+# is shorthand for
+git branch branch-name
+git checkout branch-name
+
+# push new branch to remote 
+git push origin branch-name
+```
+
+#### delete {#git-branch-delete}
+
+```sh
+# delete your local branch
+git branch -d branch-name
+git branch -D branch-name # forces the delete
+
+# delete the remote branch
+git push origin --delete branch-name
+```
 
 *********************************************************************
 
@@ -153,6 +182,19 @@ git reset --hard HEAD~1
 *********************************************************************
 
 ### git revert {#git-revert}
+
+#### undo the last pushed commit {#git-revert-last-pushed-commit}
+
+This makes a new commit that reverses the changes in the previous pushed commit.
+
+```sh
+# get the commit hash (e.g. from Github)
+git revert 1f3601e4550d98fc6944ee2c52b2d4b9f4db96f3
+# editor will automatically open to modify the commit message (in vim type :wq to exit)
+
+# push the new commit
+git push
+```
 
 *********************************************************************
 
