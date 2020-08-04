@@ -19,3 +19,4 @@ sudo nvram SystemAudioVolume=%80
 sudo nvram -d SystemAudioVolume
 ```
 
+The above doesn't seem to work anymore - try installing `Silent Start` from the App Store instead.

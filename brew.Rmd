@@ -190,7 +190,7 @@ https://github.com/Homebrew/homebrew-cask
 * https://github.com/mas-cli/mas
 
 ```sh
-# list all apps installed via the app strore
+# list all apps installed via the app store
 mas list
 
 # search for an app in the app store
@@ -199,14 +199,16 @@ mas search iMovie
 mas search Keynote
 mas search Numbers
 mas search Pages
-
+mas search Silent Start
+ 
 # install an app from the app store
 mas install 497799835 # Xcode
 mas install 408981434 # iMovie
 mas install 409183694 # Keynote 
 mas install 409203825 # Numbers
 mas install 409201541 # Pages
-```
+mas install 905747757 # Silent Start
+ ```
 
 *********************************************************************
 

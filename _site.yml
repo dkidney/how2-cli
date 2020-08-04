@@ -14,11 +14,11 @@ navbar:
     - text: "misc"
       menu:
         - text: "crontab"
-          href: todo.html
+          href: _todo.html
         - text: "curl"
           href: curl.html
         - text: "docker"
-          href: todo.html
+          href: _todo.html
         - text: "macos"
           href: macos.html
         - text: "zsh"

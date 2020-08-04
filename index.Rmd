@@ -2,10 +2,13 @@
 title: "How to do stuff on the command line"
 author: "Darren Kidney"
 date: '`r format(Sys.Date(), "%d %b %Y")`'
+output:
+    html_document:
+        toc: false
 ---
 
 *********************************************************************
 
-## links
+<!-- ## links -->
 
-* todo
+<!-- * todo -->
