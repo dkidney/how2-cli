@@ -559,7 +559,11 @@ $(document).ready(function () {
 </div>
 <div id="git-clone" class="section level3">
 <h3>git clone</h3>
-<p><em>TODO</em></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="bu">cd</span> parent-folder</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">git</span> clone https://github.com/owner/repo-name.git</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># clone into folder with different name</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a><span class="fu">git</span> clone https://github.com/owner/repo-name.git different-name</span></code></pre></div>
 <hr />
 </div>
 <div id="git-commit" class="section level3">
@@ -567,19 +571,19 @@ $(document).ready(function () {
 <div id="git-commit-amend" class="section level4">
 <h4>–amend</h4>
 <p>E.g. amend the most recent commit, provided you haven’t pushed it:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># change the commit message</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="ex">got</span> commit --amend <span class="co"># opens an editor</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># change the content of the commit</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="fu">git</span> add my-amended-file.txt</span>
-<span id="cb4-6"><a href="#cb4-6"></a><span class="fu">git</span> commit --amend</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># change the commit message</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="ex">got</span> commit --amend <span class="co"># opens an editor</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co"># change the content of the commit</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="fu">git</span> add my-amended-file.txt</span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="fu">git</span> commit --amend</span></code></pre></div>
 <hr />
 </div>
 </div>
 <div id="git-config" class="section level3">
 <h3>git config</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># view all of your settings and where they are coming from using:</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">git</span> config --list --show-origin</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># view all of your settings and where they are coming from using:</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">git</span> config --list --show-origin</span></code></pre></div>
 <hr />
 </div>
 <div id="git-rebase" class="section level3">
@@ -596,40 +600,40 @@ $(document).ready(function () {
 <h3>git remote</h3>
 <p>Manage remotes.</p>
 <p>E.g. create a remote repo from a local directory:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># go to github and make the remote repo, </span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="co"># then do the following from your local machine:</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># initialise your local repo if you haven&#39;t already done so</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="fu">git</span> init</span>
-<span id="cb6-6"><a href="#cb6-6"></a></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="co"># make at least one commit in your local repo to create the master branch</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="fu">touch</span> README.md</span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="bu">echo</span> <span class="st">&quot;# how2-cli&quot;</span> <span class="op">&gt;</span> README.md</span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="fu">git</span> add README.md</span>
-<span id="cb6-11"><a href="#cb6-11"></a><span class="fu">git</span> commit -m <span class="st">&quot;first commit&quot;</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="co"># add a new remote </span></span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="fu">git</span> remote add origin https://github.com/dkidney/how2-cli.git</span>
-<span id="cb6-15"><a href="#cb6-15"></a></span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="co"># see which remote repo(s) the local repo is connected to (should be &#39;origin&#39;)</span></span>
-<span id="cb6-17"><a href="#cb6-17"></a><span class="fu">git</span> remote</span>
-<span id="cb6-18"><a href="#cb6-18"></a><span class="fu">git</span> remote -v <span class="co"># for more info</span></span>
-<span id="cb6-19"><a href="#cb6-19"></a></span>
-<span id="cb6-20"><a href="#cb6-20"></a><span class="co"># set the origin as the default remote repository</span></span>
-<span id="cb6-21"><a href="#cb6-21"></a><span class="fu">git</span> push -u origin master</span>
-<span id="cb6-22"><a href="#cb6-22"></a></span>
-<span id="cb6-23"><a href="#cb6-23"></a><span class="co"># remove the remote if you ever need to </span></span>
-<span id="cb6-24"><a href="#cb6-24"></a><span class="fu">git</span> remote rm origin</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># go to github and make the remote repo, </span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co"># then do the following from your local machine:</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># initialise your local repo if you haven&#39;t already done so</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="fu">git</span> init</span>
+<span id="cb7-6"><a href="#cb7-6"></a></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co"># make at least one commit in your local repo to create the master branch</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="fu">touch</span> README.md</span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="bu">echo</span> <span class="st">&quot;# how2-cli&quot;</span> <span class="op">&gt;</span> README.md</span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="fu">git</span> add README.md</span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="fu">git</span> commit -m <span class="st">&quot;first commit&quot;</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="co"># add a new remote </span></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="fu">git</span> remote add origin https://github.com/dkidney/how2-cli.git</span>
+<span id="cb7-15"><a href="#cb7-15"></a></span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="co"># see which remote repo(s) the local repo is connected to (should be &#39;origin&#39;)</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a><span class="fu">git</span> remote</span>
+<span id="cb7-18"><a href="#cb7-18"></a><span class="fu">git</span> remote -v <span class="co"># for more info</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a></span>
+<span id="cb7-20"><a href="#cb7-20"></a><span class="co"># set the origin as the default remote repository</span></span>
+<span id="cb7-21"><a href="#cb7-21"></a><span class="fu">git</span> push -u origin master</span>
+<span id="cb7-22"><a href="#cb7-22"></a></span>
+<span id="cb7-23"><a href="#cb7-23"></a><span class="co"># remove the remote if you ever need to </span></span>
+<span id="cb7-24"><a href="#cb7-24"></a><span class="fu">git</span> remote rm origin</span></code></pre></div>
 <hr />
 </div>
 <div id="git-reset" class="section level3">
 <h3>git reset</h3>
 <p>E.g. undo the last commit, provided it hasn’t been pushed:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># preserve changes in undone revisions</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">git</span> reset --soft HEAD~1</span>
-<span id="cb7-3"><a href="#cb7-3"></a></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># DELETE changes in undone revisions</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="fu">git</span> reset --hard HEAD~1</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># preserve changes in undone revisions</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">git</span> reset --soft HEAD~1</span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co"># DELETE changes in undone revisions</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="fu">git</span> reset --hard HEAD~1</span></code></pre></div>
 <hr />
 </div>
 <div id="git-revert" class="section level3">
@@ -637,17 +641,17 @@ $(document).ready(function () {
 <div id="git-revert-last-pushed-commit" class="section level4">
 <h4>undo the last pushed commit</h4>
 <p>This makes a new commit that reverses the changes in the previous pushed commit.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># get the commit hash (e.g. from Github)</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">git</span> revert 1f3601e4550d98fc6944ee2c52b2d4b9f4db96f3</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="co"># editor will automatically open to modify the commit message (in vim type :wq to exit)</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="co"># push the new commit</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="fu">git</span> push</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># get the commit hash (e.g. from Github)</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">git</span> revert 1f3601e4550d98fc6944ee2c52b2d4b9f4db96f3</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co"># editor will automatically open to modify the commit message (in vim type :wq to exit)</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co"># push the new commit</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="fu">git</span> push</span></code></pre></div>
 </div>
 <div id="git-revert-range-pushed-commits" class="section level4">
 <h4>undo a range of pushed commits</h4>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># reverts the commits between and including the specified commits</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">git</span> revert <span class="op">&lt;</span>oldest_commit_hash<span class="op">&gt;</span>..<span class="op">&lt;</span>latest_commit_hash<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># reverts the commits between and including the specified commits</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">git</span> revert <span class="op">&lt;</span>oldest_commit_hash<span class="op">&gt;</span>..<span class="op">&lt;</span>latest_commit_hash<span class="op">&gt;</span></span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -671,12 +675,12 @@ $(document).ready(function () {
 <li>your pages should now be available at <a href="http://dkidney.github.io/how2-cli" class="uri">http://dkidney.github.io/how2-cli</a></li>
 </ul>
 <p>E.g. add a link in the readme:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">touch</span> README.md</span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="bu">echo</span> <span class="st">&#39;&#39;</span> <span class="op">&gt;&gt;</span> README.md</span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="bu">echo</span> <span class="st">&#39;http://dkidney.github.io/how2-cli&#39;</span> <span class="op">&gt;&gt;</span> README.md</span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="fu">git</span> add README.md</span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="fu">git</span> commit -m <span class="st">&quot;added github pages link to readme&quot;</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="fu">git</span> push</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">touch</span> README.md</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="bu">echo</span> <span class="st">&#39;&#39;</span> <span class="op">&gt;&gt;</span> README.md</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="bu">echo</span> <span class="st">&#39;http://dkidney.github.io/how2-cli&#39;</span> <span class="op">&gt;&gt;</span> README.md</span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="fu">git</span> add README.md</span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="fu">git</span> commit -m <span class="st">&quot;added github pages link to readme&quot;</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="fu">git</span> push</span></code></pre></div>
 <hr />
 </div>
 </div>

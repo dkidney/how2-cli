@@ -13,6 +13,8 @@ navbar:
       href: git.html
     - text: "misc"
       menu:
+        - text: "awscli"
+          href: awscli.html
         - text: "crontab"
           href: _todo.html
         - text: "curl"

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>java</title>
+
+<script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="_style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">how2-cli</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="brew.html">brew</a>
+</li>
+<li>
+  <a href="bash.html">bash</a>
+</li>
+<li>
+  <a href="commands.html">commands</a>
+</li>
+<li>
+  <a href="git.html">git</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    misc
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="_todo.html">crontab</a>
+    </li>
+    <li>
+      <a href="curl.html">curl</a>
+    </li>
+    <li>
+      <a href="_todo.html">docker</a>
+    </li>
+    <li>
+      <a href="java.html">java</a>
+    </li>
+    <li>
+      <a href="macos.html">macos</a>
+    </li>
+    <li>
+      <a href="zsh.html">zsh</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    how2
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="https://dkidney.github.io/how2-py/">how2-py</a>
+    </li>
+    <li>
+      <a href="https://dkidney.github.io/how2-sql/">how2-sql</a>
+    </li>
+    <li>
+      <a href="https://dkidney.github.io/how2-r/">how2-r</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="https://github.com/dkidney/how2-cli">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://uk.linkedin.com/in/darren-kidney-495b8a103/">
+    <span class="fa fa-linkedin fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">java</h1>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#links">links</a></li>
+<li><a href="#install">install</a>
+<ul>
+<li><a href="#java8">java8</a></li>
+</ul></li>
+<li><a href="#check-versions">check versions</a></li>
+<li><a href="#java_home">JAVA_HOME</a></li>
+<li><a href="#jenv">jenv</a></li>
+<li><a href="#r">R</a>
+<ul>
+<li><a href="#rjava">rJava</a></li>
+<li><a href="#rstudio">RStudio</a></li>
+</ul></li>
+</ul>
+</div>
+
+<hr />
+<div id="links" class="section level2">
+<h2>links</h2>
+<ul>
+<li><a href="https://medium.com/@brunofrascino/working-with-multiple-java-versions-in-macos-9a9c4f15615a" class="uri">https://medium.com/@brunofrascino/working-with-multiple-java-versions-in-macos-9a9c4f15615a</a><br />
+</li>
+<li><a href="https://www.w3schools.com/java/default.asp" class="uri">https://www.w3schools.com/java/default.asp</a><br />
+</li>
+<li><a href="https://stackoverflow.com/questions/52524112/how-do-i-install-java-on-mac-osx-allowing-version-switching" class="uri">https://stackoverflow.com/questions/52524112/how-do-i-install-java-on-mac-osx-allowing-version-switching</a><br />
+</li>
+<li><a href="http://davidcai.github.io/blog/posts/install-multiple-jdk-on-mac/" class="uri">http://davidcai.github.io/blog/posts/install-multiple-jdk-on-mac/</a><br />
+</li>
+<li><a href="http://www.lonecpluspluscoder.com/2017/04/27/installing-java-8-jdk-os-x-using-homebrew/" class="uri">http://www.lonecpluspluscoder.com/2017/04/27/installing-java-8-jdk-os-x-using-homebrew/</a><br />
+</li>
+<li><a href="http://www.lonecpluspluscoder.com/2017/10/08/installing-other-versions-of-the-java-jdk-via-homebrew/" class="uri">http://www.lonecpluspluscoder.com/2017/10/08/installing-other-versions-of-the-java-jdk-via-homebrew/</a></li>
+</ul>
+<hr />
+</div>
+<div id="install" class="section level2">
+<h2>install</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># see which versions are available via brew</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">brew</span> search java </span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="ex">brew</span> search openjdk</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># install the version(s) you want</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="ex">brew</span> cask install java <span class="co"># latest version</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="ex">brew</span> cask install java8</span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="ex">brew</span> cask install java11</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co"># check your default version</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="ex">java</span> -version</span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="fu">which</span> java</span></code></pre></div>
+<div id="java8" class="section level3">
+<h3>java8</h3>
+<p><code>brew install java8</code> is no longer available, but you can install Java 8 like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="ex">brew</span> tap adoptopenjdk/openjdk</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="ex">brew</span> search adoptopenjdk</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="ex">brew</span> cask install adoptopenjdk8</span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co"># check it&#39;s installed</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="fu">ls</span> -1 /Library/Java/JavaVirtualMachines </span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co"># add the java home directory</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="ex">jenv</span> add /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/</span></code></pre></div>
+<hr />
+</div>
+</div>
+<div id="check-versions" class="section level2">
+<h2>check versions</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># list all currently installed versions</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">ls</span> /Library/Java/JavaVirtualMachines/</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># alternative way to find locations of previously installed Java JDK&#39;s installed at the default system locations</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="ex">/usr/libexec/java_home</span> -V <span class="co"># locations of all versions</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="ex">/usr/libexec/java_home</span> -v 1.8 <span class="co"># location of java8</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="ex">/usr/libexec/java_home</span> -v 11 <span class="co"># location of java11</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="bu">echo</span> <span class="va">$(</span><span class="ex">/usr/libexec/java_home</span><span class="va">)</span> <span class="co"># location of current system version</span></span></code></pre></div>
+<p>version numbers:</p>
+<p>45 = Java 1.1<br />
+46 = Java 1.2<br />
+47 = Java 1.3<br />
+48 = Java 1.4<br />
+49 = Java 5<br />
+50 = Java 6<br />
+51 = Java 7<br />
+52 = Java 8<br />
+53 = Java 9<br />
+54 = Java 10<br />
+55 = Java 11<br />
+56 = Java 12<br />
+57 = Java 13</p>
+<hr />
+</div>
+<div id="java_home" class="section level2">
+<h2>JAVA_HOME</h2>
+<p>One way to manage java versions is to manually set the <code>JAVA_HOME</code> environment variable which points to the file system location where the JDK or JRE was installed.</p>
+<p>Add the following to <code>.zshrc</code> or <code>.bash_profile</code>:</p>
+<pre><code>export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
+export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
+alias java8=&#39;export JAVA_HOME=$JAVA_8_HOME&#39;
+alias java11=&#39;export JAVA_HOME=$JAVA_11_HOME&#39;</code></pre>
+<p>Then simply use the relevant alias to switch version as needed.</p>
+<p><strong>NB: For some reason setting JAVA_HOME doesn’t work for me - but <a href="#jenv">jenv</a> does.</strong></p>
+<hr />
+</div>
+<div id="jenv" class="section level2">
+<h2>jenv</h2>
+<blockquote>
+<p>Java environment manager</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/jenv/jenv" class="uri">https://github.com/jenv/jenv</a><br />
+</li>
+<li>lets you switch between java versions<br />
+</li>
+<li>sets JAVA_HOME in a way that can be set globally, local to the current working directory or per shell</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="ex">brew</span> install jenv</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="bu">echo</span> <span class="st">&#39;export PATH=&quot;$HOME/.jenv/bin:$PATH&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.zshrc</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="bu">echo</span> <span class="st">&#39;eval &quot;$(jenv init -)&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.zshrc</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="bu">source</span> ~/.zshrc</span>
+<span id="cb5-5"><a href="#cb5-5"></a></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co"># enable the export plugin to make sure JAVA_HOME is set </span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="ex">jenv</span> enable-plugin export</span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="bu">exec</span> <span class="va">$SHELL</span> -l <span class="co"># for me this runs source ~/.zshrc</span></span>
+<span id="cb5-9"><a href="#cb5-9"></a></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co"># verify jenv was installed</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="ex">jenv</span> doctor</span>
+<span id="cb5-12"><a href="#cb5-12"></a></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="co"># add a specific version to the jenv list</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a><span class="ex">jenv</span> add <span class="va">$(</span><span class="ex">/usr/libexec/java_home</span><span class="va">)</span> <span class="co"># e.g. add current system version</span></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="ex">jenv</span> add <span class="va">$(</span><span class="ex">/usr/libexec/java_home</span> -v 1.8<span class="va">)</span> <span class="co"># e.g. add java8</span></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="ex">jenv</span> add <span class="va">$(</span><span class="ex">/usr/libexec/java_home</span> -v 11<span class="va">)</span> <span class="co"># e.g. add java11</span></span>
+<span id="cb5-17"><a href="#cb5-17"></a><span class="ex">jenv</span> add <span class="va">$(</span><span class="ex">/usr/libexec/java_home</span> -v 14<span class="va">)</span> <span class="co"># e.g. add java14</span></span>
+<span id="cb5-18"><a href="#cb5-18"></a></span>
+<span id="cb5-19"><a href="#cb5-19"></a><span class="co"># see which java versions are now available to jenv</span></span>
+<span id="cb5-20"><a href="#cb5-20"></a><span class="ex">jenv</span> versions</span></code></pre></div>
+<p>There are three options for setting versions: global, local and shell</p>
+<p>global:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a><span class="ex">jenv</span> global openjdk64-1.8.0.242</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="ex">java</span> -version</span></code></pre></div>
+<p>local:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># set a local version for the current working directory</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co"># this will create a .java-version - jenv will load it when a shell is started from this directory</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="bu">pwd</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="ex">jenv</span> local 11.0.2</span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="bu">exec</span> <span class="va">$SHELL</span> -l</span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="fu">cat</span> .java-version</span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="bu">echo</span> <span class="va">${JAVA_HOME}</span></span></code></pre></div>
+<p>shell:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># set the version used in this particular shell session</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="ex">jenv</span> shell 11.0.2</span></code></pre></div>
+<hr />
+</div>
+<div id="r" class="section level2">
+<h2>R</h2>
+<div id="rjava" class="section level3">
+<h3>rJava</h3>
+<ul>
+<li><a href="https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_osx-x64_bin.tar.gz" class="uri">https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_osx-x64_bin.tar.gz</a></li>
+</ul>
+<p>check that rJava loads properly - if it does, you have nothing to worry about :)</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">library</span>(rJava)</span></code></pre></div>
+<p>If you get an error message, try runnint this in a terminal (you many need to restart R afterwards)</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1"></a><span class="ex">R</span> CMD javareconf </span></code></pre></div>
+</div>
+<div id="rstudio" class="section level3">
+<h3>RStudio</h3>
+<p>For some later version of RStudio I get this error message when running <code>library(rJava)</code>:</p>
+<pre><code>Error: package or namespace load failed for ‘rJava’:
+ .onLoad failed in loadNamespace() for &#39;rJava&#39;, details:
+  call: dyn.load(file, DLLpath = DLLpath, ...)
+  error: unable to load shared object &#39;/Library/Frameworks/R.framework/Versions/3.6/Resources/library/rJava/libs/rJava.so&#39;:
+  dlopen(/Library/Frameworks/R.framework/Versions/3.6/Resources/library/rJava/libs/rJava.so, 6): Library not loaded: /Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home/lib/server/libjvm.dylib
+  Referenced from: /Library/Frameworks/R.framework/Versions/3.6/Resources/library/rJava/libs/rJava.so
+  Reason: image not found</code></pre>
+<p>Running <code>R CMD javareconf</code> doesn’t fix it and I also couldn’t install <code>jdk-11.0.1</code>.</p>
+<p>However this hacky fix worked for me:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">sudo</span> mkdir -p /Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home/lib/server/</span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="bu">cd</span> /Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home/lib/server/</span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="fu">sudo</span> ln -s /Library/Java/JavaVirtualMachines/openjdk-11.0.2.jdk/Contents/Home/lib/server/libjvm.dylib libjvm.dylib</span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="bu">cd</span> -</span></code></pre></div>
+<p>Version 1.2.1335 and earlier seem to work fine with Java 8 (e.g. version 1.8.0.192).</p>
+<hr />
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

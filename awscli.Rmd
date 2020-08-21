@@ -1,0 +1,86 @@
+---
+title: awscli
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+*********************************************************************
+
+> A unified tool that provides a consistent interface for interacting with all parts of AWS
+
+*********************************************************************
+
+## faqs
+
+* [cp particular file types](#cp-filetypes)  
+* [sync particular file types](#sync-filetypes)  
+
+*********************************************************************
+
+## links
+
+* https://docs.aws.amazon.com/cli/latest/index.html  
+
+*********************************************************************
+
+## install
+
+```sh
+brew install awscli
+```
+
+*********************************************************************
+
+## s3
+
+### ls
+
+### cp
+
+```sh
+aws s3 cp {src-path} {tgt-path} --dryrun # good idea to use --dryrun first
+```
+
+#### cp a file {#cp-file}
+
+```sh
+aws s3 cp {src-file-path} {tgt-dir-path}/
+```
+
+#### cp recursively {#cp-recursive}
+
+```sh
+aws s3 cp {src-dir}/ {tgt-dir}/ --recursive
+```
+
+#### cp particular file types {#cp-filetypes}
+
+```sh
+aws s3 cp {src-dir-path}/ {tgt-dir-path}/ \
+--recursive \
+--exclude "*" \
+--include "*.txt" \
+--include "*.csv"
+```
+
+### sync
+
+* https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html
+
+```sh
+aws s3 sync {src-dir-path}/ {tgt-dir-path}/ --dryrun # good idea to use --dryrun first
+```
+
+#### sync particular file types {#sync-filetypes}
+
+```sh
+aws s3 sync {src-dir-path}/ {tgt-dir-path}/ \
+--exclude "*" \
+--include "*.txt" \
+--include "*.csv"
+```
+
+

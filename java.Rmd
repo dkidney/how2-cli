@@ -1,13 +1,16 @@
 ---
 title: java
+editor_options: 
+  chunk_output_type: console
 ---
 
-```{css css_custom, code=readLines("_css_custom.css"), echo=FALSE}
-```
-```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```{r, include=FALSE}
+source("_knitr_config.R")
 ```
 
 *********************************************************************
+
+## links
 
 * https://medium.com/@brunofrascino/working-with-multiple-java-versions-in-macos-9a9c4f15615a  
 * https://www.w3schools.com/java/default.asp  
@@ -18,9 +21,9 @@ title: java
 
 *********************************************************************
 
-## installation
+## install
 
-```{sh, eval=FALSE}
+```sh
 # see which versions are available via brew
 brew search java 
 brew search openjdk
@@ -30,76 +33,18 @@ brew cask install java # latest version
 brew cask install java8
 brew cask install java11
 
-# check default version
+# check your default version
 java -version
 which java
-
-# list all the currently installed versions
-ls /Library/Java/JavaVirtualMachines/
-
-# alternative way to find locations of previously installed Java JDK's installed at the default system locations
-/usr/libexec/java_home -V # locations of all versions
-/usr/libexec/java_home -v 1.8 # location of specific version
-echo $(/usr/libexec/java_home) # location of current system version
-```
-
-*********************************************************************
-
-## jenv
-
-* https://github.com/jenv/jenv
-
-```{sh, eval=FALSE}
-brew install jenv
-echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.zshrc
-echo 'eval "$(jenv init -)"' >> ~/.zshrc
-source ~/.zshrc
-
-# verify jenv was installed
-jenv doctor
-
-# enable the export plugin to make sure JAVA_HOME is set 
-jenv enable-plugin export
-exec $SHELL -l # for me this runs source ~/.zshrc
-
-# add a specific version to the jenv list
-echo $(/usr/libexec/java_home) # what does this do?
-jenv add $(/usr/libexec/java_home) 
-jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home
-jenv add /Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home
-jenv add /Library/Java/JavaVirtualMachines/openjdk-11.0.2.jdk/Contents/Home
-
-# see which java versions are available
-jenv versions
-```
-
-Three options for setting versions: global, local and shell
-
-```{sh, eval=FALSE}
-# set global verion
-jenv global openjdk64-1.8.0.242
-java -version
-
-# set a local version for the current working directory
-# this will create a .java-version - jenv will load it when a shell is started from this directory
-pwd
-jenv local 11.0.2
-exec $SHELL -l
-cat .java-version
-echo ${JAVA_HOME}
-
-# set the version used in this particular shell session
-jenv shell 11.0.2
 ```
 
 ### java8
 
 `brew install java8` is no longer available, but you can install Java 8 like this:
 
-```{sh, eval=FALSE}
+```sh
 brew tap adoptopenjdk/openjdk
 brew search adoptopenjdk
-brew cask install adoptopenjdk8
 brew cask install adoptopenjdk8
 
 # check it's installed
@@ -107,6 +52,118 @@ ls -1 /Library/Java/JavaVirtualMachines
 
 # add the java home directory
 jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home/
+```
+
+*********************************************************************
+
+## check versions
+
+```sh
+# list all currently installed versions
+ls /Library/Java/JavaVirtualMachines/
+
+# alternative way to find locations of previously installed Java JDK's installed at the default system locations
+/usr/libexec/java_home -V # locations of all versions
+/usr/libexec/java_home -v 1.8 # location of java8
+/usr/libexec/java_home -v 11 # location of java11
+echo $(/usr/libexec/java_home) # location of current system version
+```
+
+version numbers:
+
+45 = Java 1.1  
+46 = Java 1.2  
+47 = Java 1.3  
+48 = Java 1.4  
+49 = Java 5  
+50 = Java 6  
+51 = Java 7  
+52 = Java 8  
+53 = Java 9  
+54 = Java 10  
+55 = Java 11  
+56 = Java 12  
+57 = Java 13  
+
+
+*********************************************************************
+
+## JAVA_HOME
+
+One way to manage java versions is to manually set the `JAVA_HOME` environment variable which points to the file system location where the JDK or JRE was installed.
+
+Add the following to `.zshrc` or `.bash_profile`:
+
+```
+export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
+export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
+alias java8='export JAVA_HOME=$JAVA_8_HOME'
+alias java11='export JAVA_HOME=$JAVA_11_HOME'
+```
+
+Then simply use the relevant alias to switch version as needed.
+
+**NB: For some reason setting JAVA_HOME doesn't work for me - but [jenv](#jenv) does.**
+
+*********************************************************************
+
+## jenv {#jenv}
+
+> Java environment manager
+
+* https://github.com/jenv/jenv  
+* lets you switch between java versions  
+* sets JAVA_HOME in a way that can be set globally, local to the current working directory or per shell  
+
+```sh
+brew install jenv
+echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(jenv init -)"' >> ~/.zshrc
+source ~/.zshrc
+
+# enable the export plugin to make sure JAVA_HOME is set 
+jenv enable-plugin export
+exec $SHELL -l # for me this runs source ~/.zshrc
+
+# verify jenv was installed
+jenv doctor
+
+# add a specific version to the jenv list
+jenv add $(/usr/libexec/java_home) # e.g. add current system version
+jenv add $(/usr/libexec/java_home -v 1.8) # e.g. add java8
+jenv add $(/usr/libexec/java_home -v 11) # e.g. add java11
+jenv add $(/usr/libexec/java_home -v 14) # e.g. add java14
+
+# see which java versions are now available to jenv
+jenv versions
+```
+
+There are three options for setting versions: global, local and shell
+
+global:
+
+```sh
+jenv global openjdk64-1.8.0.242
+java -version
+```
+
+local:
+
+```sh
+# set a local version for the current working directory
+# this will create a .java-version - jenv will load it when a shell is started from this directory
+pwd
+jenv local 11.0.2
+exec $SHELL -l
+cat .java-version
+echo ${JAVA_HOME}
+```
+
+shell:
+
+```sh
+# set the version used in this particular shell session
+jenv shell 11.0.2
 ```
 
 *********************************************************************
@@ -125,7 +182,7 @@ library(rJava)
 
 If you get an error message, try runnint this in a terminal (you many need to restart R afterwards)
 
-```{sh, eval=FALSE}
+```sh
 R CMD javareconf 
 ```
 
@@ -147,7 +204,7 @@ Running `R CMD javareconf` doesn't fix it and I also couldn't install `jdk-11.0.
 
 However this hacky fix worked for me:
 
-```{sh, eval=FALSE}
+```sh
 sudo mkdir -p /Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home/lib/server/
 cd /Library/Java/JavaVirtualMachines/jdk-11.0.1.jdk/Contents/Home/lib/server/
 sudo ln -s /Library/Java/JavaVirtualMachines/openjdk-11.0.2.jdk/Contents/Home/lib/server/libjvm.dylib libjvm.dylib

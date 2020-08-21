@@ -103,7 +103,13 @@ git push origin --delete branch-name
 
 ### git clone {#git-clone}
 
-*TODO*
+```sh
+cd parent-folder
+git clone https://github.com/owner/repo-name.git
+
+# clone into folder with different name
+git clone https://github.com/owner/repo-name.git different-name
+```
 
 *********************************************************************
 
@@ -126,9 +132,21 @@ git commit --amend
 
 ### git config {#git-config}
 
+* https://www.datacamp.com/community/tutorials/git-setup
+
 ```sh
 # view all of your settings and where they are coming from using:
 git config --list --show-origin
+```
+
+#### git config pull {#git-config-pull}
+
+Specify how to reconcile divergent branches when using `git pull`
+
+```sh
+git config --global pull.rebase false  # merge (the default strategy)
+git config --global pull.rebase true   # rebase
+git config --global pull.ff only       # fast-forward only
 ```
 
 *********************************************************************
