@@ -245,6 +245,15 @@ egrep -v "\w" path(s)/to/file(s)
 
 *********************************************************************
 
+## exec {#exec}
+
+```sh
+# restart shell
+exec "$SHELL"
+```
+
+*********************************************************************
+
 ## expr {#expr}
 
 Mathematical expressions.
@@ -651,9 +660,15 @@ See also `diff`
 
 ## sed {#sed}
 
-Good for one-to-one replacement of strings in files.
+Stream editor.
 
-*TODO*
+```sh
+# print result to console but don't amend file
+sed 's/old/new/g' file.txt
+
+# amend file
+sed -i '' 's/old/new/g' file.txt
+```
 
 *********************************************************************
 
