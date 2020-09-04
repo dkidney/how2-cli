@@ -78,14 +78,21 @@ git config --global user.email myName@email.com
 #### create {#git-branch-create}
 
 ```sh
-git checkout -B branch-name
-
-# is shorthand for
+# create a new branch that is based on your currently checked out (HEAD) branch
 git branch branch-name
+
+# create a new branch on a different existing branch
+git branch branch-name base-branch
+
+# create branch and checkout 
+git checkout -b branch-name base-branch
+# the above line is shorthand for
+git branch branch-name base-branch
 git checkout branch-name
 
 # push new branch to remote and set the remote as upstream 
-git push -u origin branch-name
+git push --set-upstream origin branch-name
+git push -u origin branch-name # same as above but using shortcut -u option
 ```
 
 #### delete {#git-branch-delete}
