@@ -81,12 +81,14 @@ brew list --versions
 
 # list outdated formulae
 brew outdated
+brew outdated --greedy
 
 # upgrade a specific formula
 brew upgrade git
 
 # upgrade all outdated formulae
 brew upgrade
+brew upgrade --greedy
 
 # clean up files/downloads for out-of-date app versions
 brew cleanup 
@@ -172,6 +174,7 @@ brew cask info atom
 
 # list the outdated installed Casks
 brew cask outdated
+brew cask outdated --greedy # also lists cask that update themselves
 
 # upgrade a particular cask
 brew cask upgrade atom
