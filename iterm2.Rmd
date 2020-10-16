@@ -1,0 +1,52 @@
+---
+title: iterm2
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+<!-- ********************************************************************* -->
+
+<!-- > Headline -->
+
+<!-- ********************************************************************* -->
+
+<!-- ## faqs -->
+
+<!-- ********************************************************************* -->
+
+<!-- ## links -->
+
+*********************************************************************
+
+## setup
+
+```sh
+brew cask install iterm2
+```
+
+*********************************************************************
+
+## fonts
+
+### powerline fonts
+
+```sh
+git clone https://github.com/powerline/fonts.git
+cd fonts
+./install.sh
+```
+
+*********************************************************************
+
+## themes
+
+See here for how to change theme to Atom One Dark:
+
+https://github.com/nicolashery/mac-dev-setup#iterm2
+
+*********************************************************************
+
+

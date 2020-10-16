@@ -21,6 +21,8 @@ navbar:
           href: curl.html
         - text: "docker"
           href: _todo.html
+        - text: "iterm2"
+          href: iterm2.html
         - text: "java"
           href: java.html
         - text: "macos"
