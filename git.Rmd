@@ -66,6 +66,47 @@ git config --global user.name "myUserName"
 git config --global user.email myName@email.com
 ```
 
+*********************************************************************
+
+## .gitignore
+
+* https://git-scm.com/docs/gitignore  
+* https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_ignoring  
+* https://github.com/github/gitignore  
+  * https://github.com/github/gitignore/blob/master/Python.gitignore  
+  * https://github.com/github/gitignore/blob/master/R.gitignore  
+
+Rules:
+
+* standard glob patterns are are applied recursively:  
+  * `*` zero or more characters  
+  * `a/**/z` nested directories (e.g. `a/z`, `a/b/z`, `a/b/c/z`, etc.)  
+  * `?` a single character  
+  * `[abc]` any character in the brackets  
+  * `[0-9]` any character from 0 to 9  
+* `/` at the start of a pattern avoids recursivity  
+* `/` at the end of a pattern specifies a directory  
+* `!` at the end of a pattern negates it  
+
+```
+# ignore all .a files
+*.a
+
+# but do track lib.a, even though you're ignoring .a files above
+!lib.a
+
+# only ignore the TODO file in the current directory, not subdir/TODO
+/TODO
+
+# ignore all files in any directory named build
+build/
+
+# ignore doc/notes.txt, but not doc/server/arch.txt
+doc/*.txt
+
+# ignore all .pdf files in the doc/ directory and any of its subdirectories
+doc/**/*.pdf
+```
 
 *********************************************************************
 
@@ -139,10 +180,15 @@ git commit --amend
 
 ### git config {#git-config}
 
+Specify configuration settings.
+
 * https://www.datacamp.com/community/tutorials/git-setup
 
 ```sh
-# view all of your settings and where they are coming from using:
+# view all of your settings
+git config --list
+
+# view all of your settings and where they are coming from
 git config --list --show-origin
 ```
 
@@ -154,6 +200,18 @@ Specify how to reconcile divergent branches when using `git pull`
 git config --global pull.rebase false  # merge (the default strategy)
 git config --global pull.rebase true   # rebase
 git config --global pull.ff only       # fast-forward only
+```
+
+E.g. user name and email
+
+```sh
+# view user name and email
+git config --global user.name
+git config --global user.email
+
+# set user name and email
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
 ```
 
 *********************************************************************
