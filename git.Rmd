@@ -119,6 +119,11 @@ doc/**/*.pdf
 #### create {#git-branch-create}
 
 ```sh
+# list branches
+git branch # local branches
+git branch -r # remote branches
+git branch -a # local and remote branches
+
 # create a new branch that is based on your currently checked out (HEAD) branch
 git branch branch-name
 
