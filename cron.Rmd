@@ -1,0 +1,71 @@
+---
+title: cron
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r knitr_config, code=readLines("_knitr_config.R"), echo=FALSE}
+```
+
+/usr/local/bin/zsh ~/github/kidneypy/cron/check_py_version/check_py_version.sh >> ~/github/kidneypy/cron/check_py_version.log 2>&1
+
+
+
+*********************************************************************
+
+```sh
+# see if cron is running
+ps -A | grep "cron"
+```
+
+*********************************************************************
+
+## crontab
+
+flags:
+
+`-l` view the current crontab
+`-e` edit the current crontab
+`-u` specify the name of the user whose crontab is to be changed  
+`-r` remove the current crontab  
+
+```sh
+# see a list of scheduled jobs for current user
+crontab -l
+
+# edit the list of cron jobs (opens default editor)
+crontab -e 
+# in vim pres i to insert then esc 
+# :wq to save and exit, or
+# :qa! to abandon all changes
+
+#  ___________  minute (00 - 59)
+# |  _________  hour (00 - 23)
+# | |  _______  day of month (01 - 31)
+# | | |  _____  month (1 - 12) (1 is January)
+# | | | |  ___  day of week (0 is Sunday)
+# | | | | | 
+# * * * * * command to execute
+
+#m  h  dm m  dw
+#*  *  *  *  * bash /path/to/script.sh  # every minute of every day
+#00 *  *  *  * bash /path/to/script.sh  # every hour at the start of the hour
+#00 00 *  *  * bash /path/to/script.sh  # every day at midnight
+#00 12 *  *  * bash /path/to/script.sh  # every day at noon
+#*  12 *  *  * bash /path/to/script.sh  # every minute from 12pm to 12:59pm
+#00 00 05 *  * bash /path/to/script.sh  # the 5th day of every month at midnight
+#00 00 *  07 * bash /path/to/script.sh  # every day in July at midnight
+#00 00 *  *  2 bash /path/to/script.sh  # every Tuesday at midnight
+
+# example
+* * * * * echo 'the current timestamp is ' $(date) >> ~/crontest.txt
+#cat ~/crontest.txt
+```
+
+* Use a hyphen for specifying ranges - e.g. 00-29 in the Minutes column would specify the first thirty minutes of an hour
+* Use a comma for spacifying lists - e.g. 1,5 in the Day of Week column would specify Monday and Friday 
+
+```sh
+# to view the actual crontab file
+sudo cat /var/at/tabs/darrenkidney
+```
