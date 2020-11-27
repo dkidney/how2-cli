@@ -232,6 +232,18 @@ See also `sdiff`
 
 *********************************************************************
 
+## du {#du}
+
+display disk usage statistics.
+
+e.g. top 10 largest files/folders in current working directory
+
+```sh
+du -a * | sort -r -n | head -10
+```
+
+*********************************************************************
+
 ## egrep {#egrep}
 
 Like `grep -E`.
