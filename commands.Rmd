@@ -419,6 +419,15 @@ let "varone = 1" "vartwo = varone++"; echo $varone, $vartwo
 
 ## ln {#ln}
 
+```sh
+# link
+ln -s /path/to/original /path/to/link
+
+# unlink
+unlink /path/to/link
+rm /path/to/link # alternative
+```
+
 ```{sh, eval=FALSE}
 # create a file link
 ln -sv ~/Github/dotfiles/.Rprofile ~
