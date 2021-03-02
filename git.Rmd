@@ -114,6 +114,24 @@ doc/**/*.pdf
 
 *********************************************************************
 
+### git add {#git-add}
+
+Stage files.
+
+```sh
+git add path/to/file
+
+# stage all changes and deletions to tracked files (but not new untracked files)
+git add -u path/to/dir
+git add --update path/to/dir
+
+# stage all changes (including new untracked files)
+git add -A path/to/dir
+git add --all path/to/dir
+```
+
+*********************************************************************
+
 ### git branch {#git-branch}
 
 #### create {#git-branch-create}

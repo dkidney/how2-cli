@@ -13,7 +13,7 @@
 
 <title>git</title>
 
-<script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
@@ -23,6 +23,15 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -140,6 +149,7 @@ h6 {
   text-align: left;
 }
 </style>
+
 
 <link rel="stylesheet" href="_style.css" type="text/css" />
 
@@ -412,13 +422,13 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="https://github.com/dkidney/how2-cli">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://uk.linkedin.com/in/darren-kidney-495b8a103/">
-    <span class="fa fa-linkedin fa-lg"></span>
+    <span class="fas fa-linkedin fa-lg"></span>
      
   </a>
 </li>
@@ -448,6 +458,7 @@ $(document).ready(function () {
 <li><a href="#gitignore">.gitignore</a></li>
 <li><a href="#commands">commands</a>
 <ul>
+<li><a href="#git-add">git add</a></li>
 <li><a href="#git-branch">git branch</a></li>
 <li><a href="#git-clone">git clone</a></li>
 <li><a href="#git-commit">git commit</a></li>
@@ -531,13 +542,13 @@ $(document).ready(function () {
 </div>
 <div id="installation" class="section level2">
 <h2>installation</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="ex">brew</span> install git</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="fu">git</span> --version</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="fu">which</span> git</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="co"># configure</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a><span class="fu">git</span> config --global user.name <span class="st">&quot;myUserName&quot;</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a><span class="fu">git</span> config --global user.email myName@email.com</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install git</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> --version</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span> git</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># configure</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --global user.name <span class="st">&quot;myUserName&quot;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --global user.email myName@email.com</span></code></pre></div>
 <hr />
 </div>
 <div id="gitignore" class="section level2">
@@ -597,49 +608,63 @@ doc/**/*.pdf</code></pre>
 <div id="commands" class="section level2">
 <h2>commands</h2>
 <hr />
+<div id="git-add" class="section level3">
+<h3>git add</h3>
+<p>Stage files.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add path/to/file</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># stage all changes and deletions to tracked files (but not new untracked files)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add -u path/to/dir</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add --update path/to/dir</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># stage all changes (including new untracked files)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add -A path/to/dir</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add --all path/to/dir</span></code></pre></div>
+<hr />
+</div>
 <div id="git-branch" class="section level3">
 <h3>git branch</h3>
 <div id="git-branch-create" class="section level4">
 <h4>create</h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="co"># view branches (press q to exit view)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="fu">git</span> branch <span class="co"># local branches</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="fu">git</span> branch -r <span class="co"># remote branches</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="fu">git</span> branch -a <span class="co"># local and remote branches</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a><span class="co"># create a new branch that is based on your currently checked out (HEAD) branch</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a><span class="fu">git</span> branch branch-name</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a><span class="co"># create a new branch on a different existing branch</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a><span class="fu">git</span> branch branch-name base-branch</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a><span class="co"># create branch and checkout </span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a><span class="fu">git</span> checkout -b branch-name base-branch</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a><span class="co"># the above line is shorthand for</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a><span class="fu">git</span> branch branch-name base-branch</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a><span class="fu">git</span> checkout branch-name</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a><span class="co"># push new branch to remote and set the remote as upstream </span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true"></a><span class="fu">git</span> push --set-upstream origin branch-name</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true"></a><span class="fu">git</span> push -u origin branch-name <span class="co"># same as above but using shortcut -u option</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># view branches (press q to exit view)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="co"># local branches</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch -r <span class="co"># remote branches</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch -a <span class="co"># local and remote branches</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># create a new branch that is based on your currently checked out (HEAD) branch</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch branch-name</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># create a new branch on a different existing branch</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch branch-name base-branch</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># create branch and checkout </span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout -b branch-name base-branch</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># the above line is shorthand for</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch branch-name base-branch</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout branch-name</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># push new branch to remote and set the remote as upstream </span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push --set-upstream origin branch-name</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push -u origin branch-name <span class="co"># same as above but using shortcut -u option</span></span></code></pre></div>
 </div>
 <div id="git-branch-delete" class="section level4">
 <h4>delete</h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="co"># delete your local branch</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="fu">git</span> branch -d branch-name</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="fu">git</span> branch -D branch-name <span class="co"># forces the delete</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="co"># delete the remote branch</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a><span class="fu">git</span> push origin --delete branch-name</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># delete your local branch</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch -d branch-name</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch -D branch-name <span class="co"># forces the delete</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># delete the remote branch</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin --delete branch-name</span></code></pre></div>
 <hr />
 </div>
 </div>
 <div id="git-clone" class="section level3">
 <h3>git clone</h3>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="bu">cd</span> parent-folder</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="fu">git</span> clone https://github.com/owner/repo-name.git</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a><span class="co"># clone into folder with different name</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a><span class="fu">git</span> clone https://github.com/owner/repo-name.git different-name</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> parent-folder</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/owner/repo-name.git</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># clone into folder with different name</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/owner/repo-name.git different-name</span></code></pre></div>
 <hr />
 </div>
 <div id="git-commit" class="section level3">
@@ -647,12 +672,12 @@ doc/**/*.pdf</code></pre>
 <div id="git-commit-amend" class="section level4">
 <h4>–amend</h4>
 <p>E.g. amend the most recent commit, provided you haven’t pushed it:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="co"># change the commit message</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="ex">got</span> commit --amend # opens an editor</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="co"># change the content of the commit</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="fu">git</span> add my-amended-file.txt</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a><span class="fu">git</span> commit --amend</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># change the commit message</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="ex">got</span> commit --amend # opens an editor</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># change the content of the commit</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add my-amended-file.txt</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit --amend</span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -662,25 +687,25 @@ doc/**/*.pdf</code></pre>
 <ul>
 <li><a href="https://www.datacamp.com/community/tutorials/git-setup" class="uri">https://www.datacamp.com/community/tutorials/git-setup</a></li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="co"># view all of your settings</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="fu">git</span> config --list</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="co"># view all of your settings and where they are coming from</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a><span class="fu">git</span> config --list --show-origin</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># view all of your settings</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --list</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># view all of your settings and where they are coming from</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --list --show-origin</span></code></pre></div>
 <div id="git-config-pull" class="section level4">
 <h4>git config pull</h4>
 <p>Specify how to reconcile divergent branches when using <code>git pull</code></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="fu">git</span> config --global pull.rebase false  # merge (the default strategy)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="fu">git</span> config --global pull.rebase true   # rebase</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a><span class="fu">git</span> config --global pull.ff only       # fast-forward only</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --global pull.rebase false  # merge (the default strategy)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --global pull.rebase true   # rebase</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --global pull.ff only       # fast-forward only</span></code></pre></div>
 <p>E.g. user name and email</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="co"># view user name and email</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="fu">git</span> config --global user.name</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a><span class="fu">git</span> config --global user.email</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a><span class="co"># set user name and email</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a><span class="fu">git</span> config --global user.name <span class="st">&quot;John Doe&quot;</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a><span class="fu">git</span> config --global user.email johndoe@example.com</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># view user name and email</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --global user.name</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --global user.email</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># set user name and email</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --global user.name <span class="st">&quot;John Doe&quot;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config --global user.email johndoe@example.com</span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -690,24 +715,24 @@ doc/**/*.pdf</code></pre>
 <div id="no-auto-commit" class="section level4">
 <h4>no auto-commit</h4>
 <p>E.g. merge remote feature branch into development with no auto commit:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="fu">git</span> checkout development</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="fu">git</span> pull</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a><span class="fu">git</span> merge origin/feature_branch --no-commit</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a><span class="fu">git</span> push</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout development</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge origin/feature_branch --no-commit</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
 </div>
 <div id="auto-commit-commit-message" class="section level4">
 <h4>auto-commit + commit message</h4>
 <p>E.g. merge local feature branch into development with auto commit + commit message:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="fu">git</span> checkout feature_branch</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="fu">git</span> pull</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true"></a><span class="fu">git</span> checkout development</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true"></a><span class="fu">git</span> pull</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true"></a><span class="fu">git</span> merge feature_branch -m <span class="st">&quot;merge feature_branch into development&quot;</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true"></a><span class="fu">git</span> push</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout feature_branch</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout development</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge feature_branch -m <span class="st">&quot;merge feature_branch into development&quot;</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
 </div>
 <div id="abort-changes" class="section level4">
 <h4>abort changes</h4>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="fu">git</span> merge --abort</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge --abort</span></code></pre></div>
 <ul>
 <li>can be run after a merge has resulted in conflicts</li>
 <li>it will abort the merge process and try to reconstruct the pre-merge state</li>
@@ -730,40 +755,40 @@ doc/**/*.pdf</code></pre>
 <h3>git remote</h3>
 <p>Manage remotes.</p>
 <p>E.g. create a remote repo from a local directory:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="co"># go to github and make the remote repo, </span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a><span class="co"># then do the following from your local machine:</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true"></a><span class="co"># initialise your local repo if you haven&#39;t already done so</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true"></a><span class="fu">git</span> init</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true"></a><span class="co"># make at least one commit in your local repo to create the master branch</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true"></a><span class="fu">touch</span> README.md</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&quot;# how2-cli&quot;</span> <span class="op">&gt;</span> README.md</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true"></a><span class="fu">git</span> add README.md</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true"></a><span class="fu">git</span> commit -m <span class="st">&quot;first commit&quot;</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true"></a></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true"></a><span class="co"># add a new remote </span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true"></a><span class="fu">git</span> remote add origin https://github.com/dkidney/how2-cli.git</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true"></a></span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true"></a><span class="co"># see which remote repo(s) the local repo is connected to (should be &#39;origin&#39;)</span></span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true"></a><span class="fu">git</span> remote</span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true"></a><span class="fu">git</span> remote -v <span class="co"># for more info</span></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true"></a></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true"></a><span class="co"># set the origin as the default remote repository</span></span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true"></a><span class="fu">git</span> push -u origin master</span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true"></a></span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true"></a><span class="co"># remove the remote if you ever need to </span></span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true"></a><span class="fu">git</span> remote rm origin</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># go to github and make the remote repo, </span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># then do the following from your local machine:</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># initialise your local repo if you haven&#39;t already done so</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># make at least one commit in your local repo to create the master branch</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> README.md</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;# how2-cli&quot;</span> <span class="op">&gt;</span> README.md</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add README.md</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit -m <span class="st">&quot;first commit&quot;</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># add a new remote </span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin https://github.com/dkidney/how2-cli.git</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co"># see which remote repo(s) the local repo is connected to (should be &#39;origin&#39;)</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote -v <span class="co"># for more info</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="co"># set the origin as the default remote repository</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push -u origin master</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="co"># remove the remote if you ever need to </span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote rm origin</span></code></pre></div>
 <hr />
 </div>
 <div id="git-reset" class="section level3">
 <h3>git reset</h3>
 <p>E.g. undo the last commit, provided it hasn’t been pushed:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="co"># preserve changes in undone revisions</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true"></a><span class="fu">git</span> reset --soft HEAD~1</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true"></a><span class="co"># DELETE changes in undone revisions</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a><span class="fu">git</span> reset --hard HEAD~1</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># preserve changes in undone revisions</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset --soft HEAD~1</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># DELETE changes in undone revisions</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset --hard HEAD~1</span></code></pre></div>
 <hr />
 </div>
 <div id="git-revert" class="section level3">
@@ -771,17 +796,17 @@ doc/**/*.pdf</code></pre>
 <div id="git-revert-last-pushed-commit" class="section level4">
 <h4>undo the last pushed commit</h4>
 <p>This makes a new commit that reverses the changes in the previous pushed commit.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="co"># get the commit hash (e.g. from Github)</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a><span class="fu">git</span> revert 1f3601e4550d98fc6944ee2c52b2d4b9f4db96f3</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a><span class="co"># editor will automatically open to modify the commit message (in vim type :wq to exit)</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a><span class="co"># push the new commit</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a><span class="fu">git</span> push</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the commit hash (e.g. from Github)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> revert 1f3601e4550d98fc6944ee2c52b2d4b9f4db96f3</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># editor will automatically open to modify the commit message (in vim type :wq to exit)</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># push the new commit</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
 </div>
 <div id="git-revert-range-pushed-commits" class="section level4">
 <h4>undo a range of pushed commits</h4>
-<div class="sourceCode" id="cb16"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="co"># reverts the commits between and including the specified commits</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a><span class="fu">git</span> revert <span class="op">&lt;</span>oldest_commit_hash<span class="op">&gt;</span>..<span class="op">&lt;</span>latest_commit_hash<span class="op">&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># reverts the commits between and including the specified commits</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> revert <span class="op">&lt;</span>oldest_commit_hash<span class="op">&gt;</span>..<span class="op">&lt;</span>latest_commit_hash<span class="op">&gt;</span></span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -805,12 +830,12 @@ doc/**/*.pdf</code></pre>
 <li>your pages should now be available at <a href="http://dkidney.github.io/how2-cli" class="uri">http://dkidney.github.io/how2-cli</a></li>
 </ul>
 <p>E.g. add a link in the readme:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="fu">touch</span> README.md</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&#39;&#39;</span> <span class="op">&gt;&gt;</span> README.md</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&#39;http://dkidney.github.io/how2-cli&#39;</span> <span class="op">&gt;&gt;</span> README.md</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true"></a><span class="fu">git</span> add README.md</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true"></a><span class="fu">git</span> commit -m <span class="st">&quot;added github pages link to readme&quot;</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true"></a><span class="fu">git</span> push</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> README.md</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&#39;&#39;</span> <span class="op">&gt;&gt;</span> README.md</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&#39;http://dkidney.github.io/how2-cli&#39;</span> <span class="op">&gt;&gt;</span> README.md</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add README.md</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit -m <span class="st">&quot;added github pages link to readme&quot;</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push</span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -866,7 +891,7 @@ doc/**/*.pdf</code></pre>
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
