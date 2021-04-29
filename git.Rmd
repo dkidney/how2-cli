@@ -134,14 +134,27 @@ git add --all path/to/dir
 
 ### git branch {#git-branch}
 
-#### create {#git-branch-create}
+#### view {#git-branch-view}
 
 ```sh
 # view branches (press q to exit view)
 git branch # local branches
 git branch -r # remote branches
 git branch -a # local and remote branches
+```
 
+#### create {#git-branch-create}
+
+quick:
+```sh
+new_branch=my_new_branch
+base_branch=my_base_branch
+git checkout -b ${new_branch} ${base_branch}
+git push -u origin ${new_branch}
+```
+
+details:
+```sh
 # create a new branch that is based on your currently checked out (HEAD) branch
 git branch branch-name
 
