@@ -13,23 +13,49 @@
 
 <title>commands</title>
 
-<script src="site_libs/header-attrs-2.3/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
-<style type="text/css">code{white-space: pre;}</style>
+
+<style type="text/css">
+  code {
+    white-space: pre;
+  }
+  .sourceCode {
+    overflow: visible;
+  }
+</style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -107,39 +133,9 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   }
 })();
 </script>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 <link rel="stylesheet" href="_style.css" type="text/css" />
 
@@ -150,10 +146,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -170,40 +162,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -231,7 +196,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -243,7 +208,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -254,10 +219,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -269,7 +247,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -412,13 +389,13 @@ $(document).ready(function () {
 </li>
 <li>
   <a href="https://github.com/dkidney/how2-cli">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fas fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
   <a href="https://uk.linkedin.com/in/darren-kidney-495b8a103/">
-    <span class="fa fa-linkedin fa-lg"></span>
+    <span class="fas fa-linkedin fa-lg"></span>
      
   </a>
 </li>
@@ -427,7 +404,7 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -510,7 +487,7 @@ $(document).ready(function () {
 <div id="apropos" class="section level2">
 <h2>apropos</h2>
 <p>Search all of the available commands and their descriptions.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">apropos</span> editor</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">apropos</span> editor</span></code></pre></div>
 <hr />
 </div>
 <div id="awk" class="section level2">
@@ -522,28 +499,28 @@ $(document).ready(function () {
 <div id="bc" class="section level2">
 <h2>bc</h2>
 <p>Bench calculator.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&quot;22 / 7&quot;</span> <span class="kw">|</span> <span class="fu">bc</span> -l</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&quot;4.2 * 9.15&quot;</span> <span class="kw">|</span> <span class="fu">bc</span> -l</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&quot;(6.5 / 0.5) + (6 * 2.2)&quot;</span> <span class="kw">|</span> <span class="fu">bc</span> -l</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;22 / 7&quot;</span> <span class="kw">|</span> <span class="fu">bc</span> <span class="at">-l</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;4.2 * 9.15&quot;</span> <span class="kw">|</span> <span class="fu">bc</span> <span class="at">-l</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;(6.5 / 0.5) + (6 * 2.2)&quot;</span> <span class="kw">|</span> <span class="fu">bc</span> <span class="at">-l</span></span></code></pre></div>
 <hr />
 </div>
 <div id="cd" class="section level2">
 <h2>cd</h2>
 <p>Change directory.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="bu">cd</span> /  # root</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="bu">cd</span>    # home</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="bu">cd</span> ~  # home</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a><span class="bu">cd</span> .. <span class="co"># parent </span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a><span class="bu">cd</span> -  # previous </span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /  <span class="co"># root</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span>    <span class="co"># home</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~  <span class="co"># home</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> .. <span class="co"># parent </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="at">-</span>  <span class="co"># previous </span></span></code></pre></div>
 <hr />
 </div>
 <div id="chflags" class="section level2">
 <h2>chflags</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="co"># unhide a file/folder</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a><span class="ex">chflags</span> nohidden PATH</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="co"># hide a file/folder</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="ex">chflags</span> hidden PATH</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># unhide a file/folder</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">chflags</span> nohidden PATH</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># hide a file/folder</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">chflags</span> hidden PATH</span></code></pre></div>
 <hr />
 </div>
 <div id="chmod" class="section level2">
@@ -570,11 +547,11 @@ $(document).ready(function () {
 <code>r</code> : read<br />
 <code>w</code> : write<br />
 <code>x</code> : execute</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="co"># generic usage</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a><span class="co"># who  : a | u | g | o</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="co"># op   : + | - | =</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="co"># perm : r | s | t | w | x | X | u | g | o</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="fu">chmod</span> [who][op][perm] path/to/file</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generic usage</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># who  : a | u | g | o</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># op   : + | - | =</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># perm : r | s | t | w | x | X | u | g | o</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> [who][op][perm] path/to/file</span></code></pre></div>
 </div>
 <div id="who" class="section level3">
 <h3>who</h3>
@@ -582,16 +559,16 @@ $(document).ready(function () {
 <code>g</code> : group<br />
 <code>o</code> : others<br />
 <code>a</code> : all</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="co"># add executable user permission</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a><span class="fu">chmod</span> u+x path/to/file</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a><span class="co"># remove executable user permission</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a><span class="fu">chmod</span> u-x path/to/file</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a><span class="co"># add user, group and others permissions to executable</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a><span class="fu">chmod</span> ugo+x path/to/file</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a><span class="fu">chmod</span> a+x path/to/file <span class="co"># same as above</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a><span class="fu">chmod</span> +x path/to/file <span class="co"># same as above</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add executable user permission</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> u+x path/to/file</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># remove executable user permission</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> u-x path/to/file</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># add user, group and others permissions to executable</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> ugo+x path/to/file</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> a+x path/to/file <span class="co"># same as above</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">chmod</span> +x path/to/file <span class="co"># same as above</span></span></code></pre></div>
 <hr />
 </div>
 </div>
@@ -604,46 +581,46 @@ $(document).ready(function () {
 </div>
 <div id="clear" class="section level2">
 <h2>clear</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="co"># type </span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="fu">clear</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a><span class="co"># to clear the screen</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">clear</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># to clear the screen</span></span></code></pre></div>
 <hr />
 </div>
 <div id="cp" class="section level2">
 <h2>cp</h2>
 <p>Copy files.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a><span class="fu">cp</span> src-file dest-file</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a><span class="fu">cp</span> src-file dest-dir</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a><span class="fu">cp</span> -r src-dir dest-dir</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> src-file dest-file</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> src-file dest-dir</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> <span class="at">-r</span> src-dir dest-dir</span></code></pre></div>
 <hr />
 </div>
 <div id="crontab" class="section level2">
 <h2>crontab</h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true"></a><span class="co"># see a list of scheduled jobs for current user</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true"></a><span class="ex">crontab</span> -l</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true"></a><span class="co"># edit the list of cron jobs (opens default editor)</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true"></a><span class="co"># e.g. in vim pres i to insert then esc :wq, or :qa! to abandon all changes</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true"></a><span class="ex">crontab</span> -e</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true"></a><span class="co">#  ___________  minute (0 - 59)</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true"></a><span class="co"># |  _________  hour (0 - 23)</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true"></a><span class="co"># | |  _______  day of month (1 - 31)</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true"></a><span class="co"># | | |  _____  month (1 - 12)</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true"></a><span class="co"># | | | |  ___  day of week (0 - 6, Sunday - Saturday)</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true"></a><span class="co"># | | | | | </span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true"></a><span class="co"># * * * * * command to exectute</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true"></a></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true"></a><span class="co"># asterisk matches all values</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true"></a><span class="co"># e.g. daily at midnight</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true"></a><span class="co"># 0 0 * * * echo &#39;hello&#39; &gt;&gt; ~/test.txt</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true"></a><span class="co"># e.g. every minute of every day</span></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true"></a><span class="ex">*</span> * * * * echo <span class="st">&#39;hello&#39;</span> <span class="op">&gt;&gt;</span> ~/test.txt</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true"></a></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true"></a><span class="fu">cat</span> ~/test.txt</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true"></a></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true"></a><span class="co"># to view the actual crontab file</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true"></a><span class="fu">sudo</span> cat /var/at/tabs/darrenkidney</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># see a list of scheduled jobs for current user</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="ex">crontab</span> <span class="at">-l</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># edit the list of cron jobs (opens default editor)</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># e.g. in vim pres i to insert then esc :wq, or :qa! to abandon all changes</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="ex">crontab</span> <span class="at">-e</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  ___________  minute (0 - 59)</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># |  _________  hour (0 - 23)</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># | |  _______  day of month (1 - 31)</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># | | |  _____  month (1 - 12)</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># | | | |  ___  day of week (0 - 6, Sunday - Saturday)</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># | | | | | </span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># * * * * * command to exectute</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># asterisk matches all values</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="co"># e.g. daily at midnight</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 0 0 * * * echo &#39;hello&#39; &gt;&gt; ~/test.txt</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co"># e.g. every minute of every day</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="ex">*</span> <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> <span class="pp">*</span> echo <span class="st">&#39;hello&#39;</span> <span class="op">&gt;&gt;</span> ~/test.txt</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> ~/test.txt</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="co"># to view the actual crontab file</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> cat /var/at/tabs/darrenkidney</span></code></pre></div>
 <p><code>-l</code> list the current crontabs<br />
 <code>-u</code> specify the name of the user whose crontab is to be changed<br />
 <code>-r</code> remove the current crontab<br />
@@ -653,23 +630,23 @@ $(document).ready(function () {
 <div id="cut" class="section level2">
 <h2>cut</h2>
 <p>Like head and tail but selects colums not rows.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true"></a><span class="co"># print fields 1-5 and 10 from a comma delimited file</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true"></a><span class="fu">cut</span> -f 1-5,10 -d , path/to/file</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print fields 1-5 and 10 from a comma delimited file</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cut</span> <span class="at">-f</span> 1-5,10 <span class="at">-d</span> , path/to/file</span></code></pre></div>
 <hr />
 </div>
 <div id="date" class="section level2">
 <h2>date</h2>
 <p><a href="https://www.howtogeek.com/410442/how-to-display-the-date-and-time-in-the-linux-terminal-and-use-it-in-bash-scripts/" class="uri">https://www.howtogeek.com/410442/how-to-display-the-date-and-time-in-the-linux-terminal-and-use-it-in-bash-scripts/</a></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true"></a><span class="bu">echo</span> <span class="va">$(</span><span class="fu">date</span><span class="va">)</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true"></a><span class="bu">echo</span> <span class="va">$(</span><span class="fu">date</span> +%Y/%m/%d<span class="va">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true"></a><span class="bu">echo</span> <span class="kw">`</span><span class="fu">date</span><span class="kw">`</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true"></a><span class="bu">echo</span> <span class="kw">`</span><span class="fu">date</span> +%Y/%m/%d<span class="kw">`</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$(</span><span class="fu">date</span><span class="va">)</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="va">$(</span><span class="fu">date</span> +%Y/%m/%d<span class="va">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="kw">`</span><span class="fu">date</span><span class="kw">`</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="kw">`</span><span class="fu">date</span> +%Y/%m/%d<span class="kw">`</span></span></code></pre></div>
 <hr />
 </div>
 <div id="diff" class="section level2">
 <h2>diff</h2>
 <p>Examine differences between files.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true"></a><span class="fu">diff</span> path-to-file1 path-to-file2</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">diff</span> path-to-file1 path-to-file2</span></code></pre></div>
 <p>See also <code>sdiff</code></p>
 <hr />
 </div>
@@ -677,31 +654,31 @@ $(document).ready(function () {
 <h2>du</h2>
 <p>display disk usage statistics.</p>
 <p>e.g. top 10 largest files/folders in current working directory</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a><span class="fu">du</span> -a * <span class="kw">|</span> <span class="fu">sort</span> -r -n <span class="kw">|</span> <span class="fu">head</span> -10</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">du</span> <span class="at">-a</span> <span class="pp">*</span> <span class="kw">|</span> <span class="fu">sort</span> <span class="at">-r</span> <span class="at">-n</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-10</span></span></code></pre></div>
 <hr />
 </div>
 <div id="egrep" class="section level2">
 <h2>egrep</h2>
 <p>Like <code>grep -E</code>.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true"></a><span class="fu">egrep</span> <span class="st">&quot;i.g&quot;</span> path(s)<span class="ex">/to</span>/<span class="ex">file</span>(s)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true"></a><span class="fu">egrep</span> <span class="st">&quot;[aeiou]&quot;</span> path(s)<span class="ex">/to</span>/<span class="ex">file</span>(s)</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true"></a><span class="fu">egrep</span> <span class="st">&quot;[^aeiou]&quot;</span> path(s)<span class="ex">/to</span>/<span class="ex">file</span>(s)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true"></a><span class="fu">egrep</span> -v <span class="st">&quot;\w&quot;</span> path(s)<span class="ex">/to</span>/<span class="ex">file</span>(s)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">egrep</span> <span class="st">&quot;i.g&quot;</span> path<span class="er">(</span><span class="ex">s</span><span class="kw">)</span><span class="ex">/to/file</span><span class="er">(</span><span class="ex">s</span><span class="kw">)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">egrep</span> <span class="st">&quot;[aeiou]&quot;</span> path<span class="er">(</span><span class="ex">s</span><span class="kw">)</span><span class="ex">/to/file</span><span class="er">(</span><span class="ex">s</span><span class="kw">)</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">egrep</span> <span class="st">&quot;[^aeiou]&quot;</span> path<span class="er">(</span><span class="ex">s</span><span class="kw">)</span><span class="ex">/to/file</span><span class="er">(</span><span class="ex">s</span><span class="kw">)</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">egrep</span> <span class="at">-v</span> <span class="st">&quot;\w&quot;</span> path<span class="er">(</span><span class="ex">s</span><span class="kw">)</span><span class="ex">/to/file</span><span class="er">(</span><span class="ex">s</span><span class="kw">)</span></span></code></pre></div>
 <hr />
 </div>
 <div id="exec" class="section level2">
 <h2>exec</h2>
-<div class="sourceCode" id="cb17"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true"></a><span class="co"># restart shell</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true"></a><span class="bu">exec</span> <span class="st">&quot;</span><span class="va">$SHELL</span><span class="st">&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># restart shell</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">exec</span> <span class="st">&quot;</span><span class="va">$SHELL</span><span class="st">&quot;</span></span></code></pre></div>
 <hr />
 </div>
 <div id="expr" class="section level2">
 <h2>expr</h2>
 <p>Mathematical expressions.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true"></a><span class="fu">expr</span> 5 + 2</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true"></a><span class="fu">expr</span> 5 - 2</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true"></a><span class="fu">expr</span> 5 <span class="dt">\*</span> 2</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true"></a><span class="fu">expr</span> 5 / 2</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expr</span> 5 + 2</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">expr</span> 5 <span class="at">-</span> 2</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">expr</span> 5 <span class="dt">\*</span> 2</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">expr</span> 5 / 2</span></code></pre></div>
 <p>Note that bash does integer division, which means that the result of dividing one number by another is always rounded down to the nearest integer.</p>
 <p>See also <code>bc</code></p>
 <hr />
@@ -709,19 +686,19 @@ $(document).ready(function () {
 <div id="grep" class="section level2">
 <h2>grep</h2>
 <p>Print lines matching a pattern - ‘lines’ is wrt to the console output, so can search file contents or files in a list of files, etc.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true"></a><span class="co"># match pattern</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true"></a><span class="fu">grep</span> pattern path/to/file</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true"></a><span class="co"># match pattern1 OR pattern2</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true"></a><span class="fu">grep</span> <span class="st">&#39;pattern1\|pattern2&#39;</span> path/to/file</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true"></a><span class="fu">grep</span> -E <span class="st">&#39;(pattern1|pattern2)&#39;</span> path/to/file</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true"></a><span class="fu">egrep</span> <span class="st">&#39;(pattern1|pattern2)&#39;</span> path/to/file</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true"></a></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true"></a><span class="co"># inverse match pattern</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true"></a><span class="fu">grep</span> -v pattern path/to/file</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true"></a></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true"></a><span class="co"># search the contents of files</span></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true"></a><span class="fu">grep</span> -rnw <span class="st">&#39;pattern&#39;</span> path</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># match pattern</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> pattern path/to/file</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># match pattern1 OR pattern2</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="st">&#39;pattern1\|pattern2&#39;</span> path/to/file</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-E</span> <span class="st">&#39;(pattern1|pattern2)&#39;</span> path/to/file</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">egrep</span> <span class="st">&#39;(pattern1|pattern2)&#39;</span> path/to/file</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co"># inverse match pattern</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-v</span> pattern path/to/file</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co"># search the contents of files</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-rnw</span> <span class="st">&#39;pattern&#39;</span> path</span></code></pre></div>
 <p><code>-c</code> count the number of matching lines<br />
 <code>-h</code> don’t print the names of files when searching multiple files<br />
 <code>-i</code> case insensitive<br />
@@ -742,27 +719,27 @@ $(document).ready(function () {
 <div id="find" class="section level2">
 <h2>find</h2>
 <p>Find the location of a file or the location of a group of files.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true"></a><span class="fu">find</span> . -name <span class="st">&quot;abc.txt&quot;</span> <span class="co"># find abc.txt in the current directory</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true"></a><span class="fu">find</span> . -name <span class="st">&quot;*.jpg&quot;</span>   # find all jpg files in the current directory</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> . <span class="at">-name</span> <span class="st">&quot;abc.txt&quot;</span> <span class="co"># find abc.txt in the current directory</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> . <span class="at">-name</span> <span class="st">&quot;*.jpg&quot;</span>   <span class="co"># find all jpg files in the current directory</span></span></code></pre></div>
 <hr />
 </div>
 <div id="head" class="section level2">
 <h2>head</h2>
-<div class="sourceCode" id="cb21"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true"></a><span class="co"># print the first 10 lines of a file</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true"></a><span class="fu">head</span> -n 5 path/to/file</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true"></a><span class="co"># shorthand</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true"></a><span class="fu">head</span> -5 path/to/file</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print the first 10 lines of a file</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-n</span> 5 path/to/file</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># shorthand</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span> <span class="at">-5</span> path/to/file</span></code></pre></div>
 <hr />
 </div>
 <div id="history" class="section level2">
 <h2>history</h2>
 <p>Browse your command history.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true"></a><span class="bu">history</span> <span class="co"># prints everything!</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true"></a><span class="bu">history</span> <span class="kw">|</span> <span class="fu">tail</span> -10         # last ten commands</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true"></a><span class="fu">tail</span> -10 ~/.zsh_history    # last ten commands in .zsh_history</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true"></a><span class="fu">tail</span> -10 ~/.bash_history   # last ten commands in .bash_history</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true"></a><span class="fu">tail</span> -10 ~/.python_history <span class="co"># last ten commands in .python_history</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">history</span> <span class="co"># prints everything!</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">history</span> <span class="kw">|</span> <span class="fu">tail</span> <span class="at">-10</span>         <span class="co"># last ten commands</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-10</span> ~/.zsh_history    <span class="co"># last ten commands in .zsh_history</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-10</span> ~/.bash_history   <span class="co"># last ten commands in .bash_history</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-10</span> ~/.python_history <span class="co"># last ten commands in .python_history</span></span></code></pre></div>
 <hr />
 </div>
 <div id="jar" class="section level2">
@@ -782,7 +759,7 @@ $(document).ready(function () {
 <li>space bar to page down</li>
 <li>q to quit</li>
 </ul>
-<div class="sourceCode" id="cb23"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true"></a><span class="fu">less</span> path/to/file</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> path/to/file</span></code></pre></div>
 <ul>
 <li>for more than one fileIf you give less the names of several files, you can type
 <ul>
@@ -793,7 +770,7 @@ $(document).ready(function () {
 <li><code>:q</code> : quit</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb24"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true"></a><span class="fu">less</span> path/to/file1 path/to/file2 ...</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">less</span> path/to/file1 path/to/file2 ...</span></code></pre></div>
 <div id="searching" class="section level3">
 <h3>Searching</h3>
 <ul>
@@ -807,103 +784,103 @@ $(document).ready(function () {
 <div id="let" class="section level2">
 <h2>let</h2>
 <p>Evaluates arithmetic expressions.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true"></a><span class="bu">let</span> <span class="st">&quot;myvar = 5&quot;</span><span class="kw">;</span> <span class="bu">echo</span> <span class="va">$myvar</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true"></a><span class="co"># 5</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true"></a></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true"></a><span class="bu">let</span> <span class="st">&quot;myvar = 5, myvar *= 2&quot;</span><span class="kw">;</span> <span class="bu">echo</span> <span class="va">$myvar</span></span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true"></a><span class="co"># 10</span></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true"></a></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true"></a><span class="co"># set varone to 1, set vartwo to the value of varone, then increment the value of varone by one</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true"></a><span class="bu">let</span> <span class="st">&quot;varone = 1&quot;</span> <span class="st">&quot;vartwo = varone++&quot;</span><span class="kw">;</span> <span class="bu">echo</span> <span class="va">$varone</span>, <span class="va">$vartwo</span></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true"></a><span class="co"># 2, 1</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="bu">let</span> <span class="st">&quot;myvar = 5&quot;</span><span class="kw">;</span> <span class="bu">echo</span> <span class="va">$myvar</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 5</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="bu">let</span> <span class="st">&quot;myvar = 5, myvar *= 2&quot;</span><span class="kw">;</span> <span class="bu">echo</span> <span class="va">$myvar</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 10</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co"># set varone to 1, set vartwo to the value of varone, then increment the value of varone by one</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="bu">let</span> <span class="st">&quot;varone = 1&quot;</span> <span class="st">&quot;vartwo = varone++&quot;</span><span class="kw">;</span> <span class="bu">echo</span> <span class="va">$varone</span>, <span class="va">$vartwo</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2, 1</span></span></code></pre></div>
 <hr />
 </div>
 <div id="ln" class="section level2">
 <h2>ln</h2>
-<div class="sourceCode" id="cb26"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true"></a><span class="co"># link</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true"></a><span class="fu">ln</span> -s /path/to/original /path/to/link</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true"></a><span class="co"># unlink</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true"></a><span class="fu">unlink</span> /path/to/link</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true"></a><span class="fu">rm</span> /path/to/link <span class="co"># alternative</span></span></code></pre></div>
-<div class="sourceCode" id="cb27"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true"></a><span class="co"># create a file link</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.Rprofile ~</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/c_cpp.snippets ~/.R/snippets</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/css.snippets ~/.R/snippets</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/html.snippets ~/.R/snippets</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/java.snippets ~/.R/snippets</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/javascript.snippets ~/.R/snippets</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/markdown.snippets ~/.R/snippets</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/python.snippets ~/.R/snippets</span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/r.snippets ~/.R/snippets</span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/sql.snippets ~/.R/snippets</span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/stan.snippets ~/.R/snippets</span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true"></a><span class="fu">ln</span> -sv ~/Github/dotfiles/.R/snippets/tex.snippets ~/.R/snippets</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># link</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> /path/to/original /path/to/link</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># unlink</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">unlink</span> /path/to/link</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> /path/to/link <span class="co"># alternative</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a file link</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-sv</span> ~/Github/dotfiles/.Rprofile ~</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-sv</span> ~/Github/dotfiles/.R/snippets/c_cpp.snippets ~/.R/snippets</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-sv</span> ~/Github/dotfiles/.R/snippets/css.snippets ~/.R/snippets</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-sv</span> ~/Github/dotfiles/.R/snippets/html.snippets ~/.R/snippets</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-sv</span> ~/Github/dotfiles/.R/snippets/java.snippets ~/.R/snippets</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-sv</span> ~/Github/dotfiles/.R/snippets/javascript.snippets ~/.R/snippets</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-sv</span> ~/Github/dotfiles/.R/snippets/markdown.snippets ~/.R/snippets</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-sv</span> ~/Github/dotfiles/.R/snippets/python.snippets ~/.R/snippets</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-sv</span> ~/Github/dotfiles/.R/snippets/r.snippets ~/.R/snippets</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-sv</span> ~/Github/dotfiles/.R/snippets/sql.snippets ~/.R/snippets</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-sv</span> ~/Github/dotfiles/.R/snippets/stan.snippets ~/.R/snippets</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-sv</span> ~/Github/dotfiles/.R/snippets/tex.snippets ~/.R/snippets</span></code></pre></div>
 <p><code>-s</code> symbolic</p>
 <hr />
 </div>
 <div id="ls" class="section level2">
 <h2>ls</h2>
 <p>List files.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true"></a><span class="co"># list files in the current directory</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true"></a><span class="fu">ls</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true"></a></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true"></a><span class="co"># list files in a particular directory</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true"></a><span class="fu">ls</span> path/to/file <span class="co"># e.g. ls ~/.Trash</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true"></a></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true"></a><span class="co"># print list with extra info</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true"></a><span class="fu">ls</span> -l</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true"></a></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true"></a><span class="co"># include hidden files</span></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true"></a><span class="fu">ls</span> -a</span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true"></a></span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true"></a><span class="co"># list directories only</span></span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true"></a><span class="fu">ls</span> -d</span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true"></a></span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true"></a><span class="co"># print trailing / after all directories and * after programes</span></span>
-<span id="cb28-17"><a href="#cb28-17" aria-hidden="true"></a><span class="fu">ls</span> -F</span>
-<span id="cb28-18"><a href="#cb28-18" aria-hidden="true"></a></span>
-<span id="cb28-19"><a href="#cb28-19" aria-hidden="true"></a><span class="co"># recursive</span></span>
-<span id="cb28-20"><a href="#cb28-20" aria-hidden="true"></a><span class="fu">ls</span> -R</span>
-<span id="cb28-21"><a href="#cb28-21" aria-hidden="true"></a></span>
-<span id="cb28-22"><a href="#cb28-22" aria-hidden="true"></a><span class="co"># combine flags</span></span>
-<span id="cb28-23"><a href="#cb28-23" aria-hidden="true"></a><span class="fu">ls</span> -alF</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># list files in the current directory</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># list files in a particular directory</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> path/to/file <span class="co"># e.g. ls ~/.Trash</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co"># print list with extra info</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="co"># include hidden files</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-a</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a><span class="co"># list directories only</span></span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-d</span></span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="co"># print trailing / after all directories and * after programes</span></span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-F</span></span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a><span class="co"># recursive</span></span>
+<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-R</span></span>
+<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a><span class="co"># combine flags</span></span>
+<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-alF</span></span></code></pre></div>
 <hr />
 </div>
 <div id="man" class="section level2">
 <h2>man</h2>
-<div class="sourceCode" id="cb29"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true"></a><span class="co"># get help</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true"></a><span class="fu">man</span> ls</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get help</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">man</span> ls</span></code></pre></div>
 <p>The controls for navigating man pages are the same as they are for less.</p>
 <hr />
 </div>
 <div id="md5" class="section level2">
 <h2>md5</h2>
 <p>Compute the MD5 hash (i.e. checksum) of a file.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true"></a><span class="ex">md5</span> path-to-file</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="ex">md5</span> path-to-file</span></code></pre></div>
 <p>See also <code>shasum</code></p>
 <hr />
 </div>
 <div id="mkdir" class="section level2">
 <h2>mkdir</h2>
-<div class="sourceCode" id="cb31"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true"></a><span class="co"># make a directory</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true"></a><span class="co"># -p ???</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true"></a><span class="fu">mkdir</span> -p new_dir/new_subdir</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true"></a><span class="bu">cd</span> !$ <span class="kw">&amp;&amp;</span> <span class="bu">pwd</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make a directory</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># -p ???</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> <span class="at">-p</span> new_dir/new_subdir</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> !$ <span class="kw">&amp;&amp;</span> <span class="bu">pwd</span></span></code></pre></div>
 <hr />
 </div>
 <div id="mv" class="section level2">
 <h2>mv</h2>
 <p>Move files.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true"></a><span class="fu">mv</span> src-file dest-file</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true"></a><span class="fu">mv</span> src-file dest-dir</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true"></a><span class="fu">mv</span> src-dir dest-dir</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> src-file dest-file</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> src-file dest-dir</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mv</span> src-dir dest-dir</span></code></pre></div>
 <hr />
 </div>
 <div id="nano" class="section level2">
 <h2>nano</h2>
 <p>Text editor.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true"></a><span class="ex">nono</span> my-file.txt</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nono</span> my-file.txt</span></code></pre></div>
 <ul>
 <li><code>Control + O</code> save changes<br />
 </li>
@@ -915,29 +892,29 @@ $(document).ready(function () {
 <div id="nvram" class="section level2">
 <h2>nvram</h2>
 <p>nonvolatile random-access memory</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true"></a><span class="co"># disable the startup chime</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true"></a><span class="fu">sudo</span> nvram SystemAudioVolume=%80</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># disable the startup chime</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nvram SystemAudioVolume=%80</span></code></pre></div>
 <hr />
 </div>
 <div id="pbcopy" class="section level2">
 <h2>pbcopy</h2>
-<div class="sourceCode" id="cb35"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true"></a><span class="co"># copy to clipboard</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true"></a><span class="ex">pbcopy</span> <span class="op">&lt;</span> ~/.ssh/id_rsa.pub</span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># copy to clipboard</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pbcopy</span> <span class="op">&lt;</span> ~/.ssh/id_rsa.pub</span></code></pre></div>
 <hr />
 </div>
 <div id="read" class="section level2">
 <h2>read</h2>
 <p>User imput.</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&quot;Type in a string and then press Enter:&quot;</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true"></a><span class="bu">read</span> <span class="va">response</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&quot;You entered: </span><span class="va">$response</span><span class="st">&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;Type in a string and then press Enter:&quot;</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="bu">read</span> <span class="va">response</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;You entered: </span><span class="va">$response</span><span class="st">&quot;</span></span></code></pre></div>
 <hr />
 </div>
 <div id="rm" class="section level2">
 <h2>rm</h2>
-<div class="sourceCode" id="cb37"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true"></a><span class="fu">rm</span> path-to-file         # delete file</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true"></a><span class="fu">rm</span> -r path-to-folder    # delete folder</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true"></a><span class="fu">rm</span> -rf path-to-folder/* <span class="co"># delete contents of folder but not the folder itself</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> path-to-file         <span class="co"># delete file</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-r</span> path-to-folder    <span class="co"># delete folder</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span> <span class="at">-rf</span> path-to-folder/<span class="pp">*</span> <span class="co"># delete contents of folder but not the folder itself</span></span></code></pre></div>
 </div>
 <div id="screen" class="section level2">
 <h2>screen</h2>
@@ -949,31 +926,31 @@ $(document).ready(function () {
 <li>can close terminal window or break SSH connection without interrupting the processes</li>
 <li>can have multiple terminal windows within each screen session</li>
 </ul>
-<div class="sourceCode" id="cb38"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true"></a><span class="co"># list existing screens</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true"></a><span class="ex">screen</span> -ls</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true"></a></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true"></a><span class="co"># start a new screen and give it a name</span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true"></a><span class="ex">screen</span> -S test-screen</span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true"></a></span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true"></a><span class="co"># start a new screen and give it a name - or attach to exisitng session with that name</span></span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true"></a><span class="ex">screen</span> -R test-screen</span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true"></a></span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true"></a><span class="co"># start a new terminal window within the screen session</span></span>
-<span id="cb38-11"><a href="#cb38-11" aria-hidden="true"></a><span class="ex">screen</span> -t test-window1</span>
-<span id="cb38-12"><a href="#cb38-12" aria-hidden="true"></a><span class="ex">screen</span> -t test-window2</span>
-<span id="cb38-13"><a href="#cb38-13" aria-hidden="true"></a><span class="ex">screen</span> -t test-window3</span>
-<span id="cb38-14"><a href="#cb38-14" aria-hidden="true"></a></span>
-<span id="cb38-15"><a href="#cb38-15" aria-hidden="true"></a><span class="co"># detach the screen</span></span>
-<span id="cb38-16"><a href="#cb38-16" aria-hidden="true"></a><span class="ex">screen</span> -d</span>
-<span id="cb38-17"><a href="#cb38-17" aria-hidden="true"></a></span>
-<span id="cb38-18"><a href="#cb38-18" aria-hidden="true"></a><span class="co"># re-attach the screen</span></span>
-<span id="cb38-19"><a href="#cb38-19" aria-hidden="true"></a><span class="ex">screen</span> -r test-screen</span>
-<span id="cb38-20"><a href="#cb38-20" aria-hidden="true"></a></span>
-<span id="cb38-21"><a href="#cb38-21" aria-hidden="true"></a><span class="co"># kill the attached screen/window </span></span>
-<span id="cb38-22"><a href="#cb38-22" aria-hidden="true"></a><span class="bu">exit</span></span>
-<span id="cb38-23"><a href="#cb38-23" aria-hidden="true"></a></span>
-<span id="cb38-24"><a href="#cb38-24" aria-hidden="true"></a><span class="co"># kill a detached screen</span></span>
-<span id="cb38-25"><a href="#cb38-25" aria-hidden="true"></a><span class="ex">screen</span> -XS test-screen quit</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># list existing screens</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="ex">screen</span> <span class="at">-ls</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># start a new screen and give it a name</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="ex">screen</span> <span class="at">-S</span> test-screen</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="co"># start a new screen and give it a name - or attach to exisitng session with that name</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="ex">screen</span> <span class="at">-R</span> test-screen</span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="co"># start a new terminal window within the screen session</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="ex">screen</span> <span class="at">-t</span> test-window1</span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="ex">screen</span> <span class="at">-t</span> test-window2</span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="ex">screen</span> <span class="at">-t</span> test-window3</span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="co"># detach the screen</span></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a><span class="ex">screen</span> <span class="at">-d</span></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a><span class="co"># re-attach the screen</span></span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a><span class="ex">screen</span> <span class="at">-r</span> test-screen</span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a><span class="co"># kill the attached screen/window </span></span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a><span class="bu">exit</span></span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a><span class="co"># kill a detached screen</span></span>
+<span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a><span class="ex">screen</span> <span class="at">-XS</span> test-screen quit</span></code></pre></div>
 <p><code>Ctrl-a ?</code> help<br />
 <code>Ctrl-a H</code> activate screen logging (creates log file <code>screenlog.0</code>)</p>
 <p>Terminal windows:</p>
@@ -993,37 +970,37 @@ $(document).ready(function () {
 <div id="scp" class="section level2">
 <h2>scp</h2>
 <p>Secure copy.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true"></a><span class="co"># copy a file</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true"></a><span class="fu">scp</span> myfile.txt user@dest:/path</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true"></a></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true"></a><span class="co"># copy all .txt files</span></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true"></a><span class="fu">scp</span> *.txt user@dest:/path</span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true"></a></span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true"></a><span class="co"># copy a directory</span></span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true"></a><span class="fu">scp</span> -r mydir user@dest:/path</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># copy a file</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> myfile.txt user@dest:/path</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="co"># copy all .txt files</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> <span class="pp">*</span>.txt user@dest:/path</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="co"># copy a directory</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="fu">scp</span> <span class="at">-r</span> mydir user@dest:/path</span></code></pre></div>
 <hr />
 </div>
 <div id="sdiff" class="section level2">
 <h2>sdiff</h2>
 <p>Like <code>diff</code> but allows you to compare side by side.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true"></a><span class="ex">sdiff</span> path-to-file1 path-to-file2</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="ex">sdiff</span> path-to-file1 path-to-file2</span></code></pre></div>
 <p>See also <code>diff</code></p>
 <hr />
 </div>
 <div id="sed" class="section level2">
 <h2>sed</h2>
 <p>Stream editor.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true"></a><span class="co"># print result to console but don&#39;t amend file</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true"></a><span class="fu">sed</span> <span class="st">&#39;s/old/new/g&#39;</span> file.txt</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true"></a></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true"></a><span class="co"># amend file</span></span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true"></a><span class="fu">sed</span> -i <span class="st">&#39;&#39;</span> <span class="st">&#39;s/old/new/g&#39;</span> file.txt</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print result to console but don&#39;t amend file</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="st">&#39;s/old/new/g&#39;</span> file.txt</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="co"># amend file</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sed</span> <span class="at">-i</span> <span class="st">&#39;&#39;</span> <span class="st">&#39;s/old/new/g&#39;</span> file.txt</span></code></pre></div>
 <hr />
 </div>
 <div id="shasum" class="section level2">
 <h2>shasum</h2>
 <p>Compute the SHA-1 hash (i.e. checksum) of a file.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true"></a><span class="ex">shasum</span> path-to-file</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="ex">shasum</span> path-to-file</span></code></pre></div>
 <p>See also <code>md5</code></p>
 <hr />
 </div>
@@ -1035,8 +1012,8 @@ $(document).ready(function () {
 <div id="ssh" class="section level2">
 <h2>ssh</h2>
 <p><em>TODO</em></p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true"></a><span class="co"># ssh keys</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true"></a><span class="fu">ssh-keygen</span> -t rsa -C <span class="st">&quot;your_email@example.com&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ssh keys</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh-keygen</span> <span class="at">-t</span> rsa <span class="at">-C</span> <span class="st">&quot;your_email@example.com&quot;</span></span></code></pre></div>
 <pre><code>ssh-keygen
 https://www.ssh.com/ssh/keygen/
 https://www.git-tower.com/learn/git/ebook/en/command-line/advanced-topics/ssh-public-keys
@@ -1058,38 +1035,38 @@ https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh
 </div>
 <div id="sudo" class="section level2">
 <h2>sudo</h2>
-<div class="sourceCode" id="cb45"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true"></a><span class="fu">sudo</span> !!</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> !!</span></code></pre></div>
 <p><em>TODO</em></p>
 <hr />
 </div>
 <div id="tail" class="section level2">
 <h2>tail</h2>
-<div class="sourceCode" id="cb46"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true"></a><span class="co"># print the last 5 of a file</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true"></a><span class="fu">tail</span> -n 5 path/to/file</span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true"></a></span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true"></a><span class="co"># shorthand</span></span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true"></a><span class="fu">tail</span> -5 path/to/file</span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true"></a></span>
-<span id="cb46-7"><a href="#cb46-7" aria-hidden="true"></a><span class="co"># print lines starting from line 5</span></span>
-<span id="cb46-8"><a href="#cb46-8" aria-hidden="true"></a><span class="fu">tail</span> -n +5 path/to/file</span>
-<span id="cb46-9"><a href="#cb46-9" aria-hidden="true"></a></span>
-<span id="cb46-10"><a href="#cb46-10" aria-hidden="true"></a><span class="co"># print live as file gets appended</span></span>
-<span id="cb46-11"><a href="#cb46-11" aria-hidden="true"></a><span class="fu">tail</span> -f path/to/file</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print the last 5 of a file</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n</span> 5 path/to/file</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="co"># shorthand</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-5</span> path/to/file</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="co"># print lines starting from line 5</span></span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-n</span> +5 path/to/file</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a><span class="co"># print live as file gets appended</span></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span> <span class="at">-f</span> path/to/file</span></code></pre></div>
 <hr />
 </div>
 <div id="tar" class="section level2">
 <h2>tar</h2>
-<div class="sourceCode" id="cb47"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true"></a><span class="co"># tar files</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true"></a><span class="fu">tar</span> -zczf path/to/file.tar.gz path/to/file1 path/to/file2</span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true"></a></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true"></a><span class="co"># tar a directory</span></span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true"></a><span class="fu">tar</span> -zcvf path/to/file.tar.gz path/to/dir</span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true"></a></span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true"></a><span class="co"># untar to current directory</span></span>
-<span id="cb47-8"><a href="#cb47-8" aria-hidden="true"></a><span class="fu">tar</span> -xvf ~/Downloads/install-tl-unx.tar.gz</span>
-<span id="cb47-9"><a href="#cb47-9" aria-hidden="true"></a></span>
-<span id="cb47-10"><a href="#cb47-10" aria-hidden="true"></a><span class="co"># untar to specified directory</span></span>
-<span id="cb47-11"><a href="#cb47-11" aria-hidden="true"></a><span class="fu">tar</span> -C ~/Downloads/ -xvf ~/Downloads/install-tl-unx.tar.gz</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tar files</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-zczf</span> path/to/file.tar.gz path/to/file1 path/to/file2</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co"># tar a directory</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-zcvf</span> path/to/file.tar.gz path/to/dir</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="co"># untar to current directory</span></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-xvf</span> ~/Downloads/install-tl-unx.tar.gz</span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="co"># untar to specified directory</span></span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="fu">tar</span> <span class="at">-C</span> ~/Downloads/ <span class="at">-xvf</span> ~/Downloads/install-tl-unx.tar.gz</span></code></pre></div>
 <p><code>c</code>: create a new archive<br />
 <code>C</code>: directory name<br />
 <code>f</code>: file name<br />
@@ -1100,10 +1077,10 @@ https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh
 </div>
 <div id="touch" class="section level2">
 <h2>touch</h2>
-<div class="sourceCode" id="cb48"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true"></a><span class="co"># make a file</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true"></a><span class="fu">touch</span> temp.txt</span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true"></a><span class="bu">echo</span> <span class="st">&quot;hello&quot;</span> <span class="op">&gt;</span> temp.txt</span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true"></a><span class="fu">cat</span> temp.txt</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make a file</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> temp.txt</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&quot;hello&quot;</span> <span class="op">&gt;</span> temp.txt</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span> temp.txt</span></code></pre></div>
 <hr />
 </div>
 <div id="uniq" class="section level2">
@@ -1113,19 +1090,19 @@ https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh
 </div>
 <div id="unzip" class="section level2">
 <h2>unzip</h2>
-<div class="sourceCode" id="cb49"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true"></a><span class="fu">unzip</span> path/to/file</span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true"></a></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true"></a><span class="co"># list files that would be unzipped but dont unzip</span></span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true"></a><span class="fu">unzip</span> -l path/to/file</span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true"></a></span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true"></a><span class="co"># don&#39;t overwrite if unzipped file already exists</span></span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true"></a><span class="fu">unzip</span> -n path/to/file</span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true"></a></span>
-<span id="cb49-9"><a href="#cb49-9" aria-hidden="true"></a><span class="co"># overwrite without prompting</span></span>
-<span id="cb49-10"><a href="#cb49-10" aria-hidden="true"></a><span class="fu">unzip</span> -o path/to/file</span>
-<span id="cb49-11"><a href="#cb49-11" aria-hidden="true"></a></span>
-<span id="cb49-12"><a href="#cb49-12" aria-hidden="true"></a><span class="co"># specify directory</span></span>
-<span id="cb49-13"><a href="#cb49-13" aria-hidden="true"></a><span class="fu">unzip</span> path/to/file -d destination/folder</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span> path/to/file</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="co"># list files that would be unzipped but dont unzip</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span> <span class="at">-l</span> path/to/file</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="co"># don&#39;t overwrite if unzipped file already exists</span></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span> <span class="at">-n</span> path/to/file</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a><span class="co"># overwrite without prompting</span></span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span> <span class="at">-o</span> path/to/file</span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a><span class="co"># specify directory</span></span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span> path/to/file <span class="at">-d</span> destination/folder</span></code></pre></div>
 <hr />
 </div>
 <div id="vim" class="section level2">
@@ -1148,26 +1125,26 @@ Esc to exit insert mode</p>
 <div id="wc" class="section level2">
 <h2>wc</h2>
 <p>Word count.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true"></a><span class="co"># print number of lines, words and bytes/characters</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true"></a><span class="fu">wc</span> path/to/file</span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true"></a></span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true"></a><span class="co"># print number of lines</span></span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true"></a><span class="fu">wc</span> -l path/to/file</span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true"></a></span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true"></a><span class="co"># print number of words</span></span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true"></a><span class="fu">wc</span> -w path/to/file</span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true"></a></span>
-<span id="cb50-10"><a href="#cb50-10" aria-hidden="true"></a><span class="co"># print number of bytes</span></span>
-<span id="cb50-11"><a href="#cb50-11" aria-hidden="true"></a><span class="fu">wc</span> -c path/to/file</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print number of lines, words and bytes/characters</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> path/to/file</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="co"># print number of lines</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-l</span> path/to/file</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="co"># print number of words</span></span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-w</span> path/to/file</span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a><span class="co"># print number of bytes</span></span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a><span class="fu">wc</span> <span class="at">-c</span> path/to/file</span></code></pre></div>
 <hr />
 </div>
 <div id="wget" class="section level2">
 <h2>wget</h2>
-<div class="sourceCode" id="cb51"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true"></a><span class="co"># download to current directory</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true"></a><span class="fu">wget</span> <span class="st">&quot;http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz&quot;</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true"></a></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true"></a><span class="co"># download to specified directory</span></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true"></a><span class="fu">wget</span> -P ~/Downloads/ <span class="st">&quot;http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># download to current directory</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> <span class="st">&quot;http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz&quot;</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># download to specified directory</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> <span class="at">-P</span> ~/Downloads/ <span class="st">&quot;http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz&quot;</span></span></code></pre></div>
 <hr />
 </div>
 
@@ -1180,7 +1157,7 @@ Esc to exit insert mode</p>
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
@@ -1198,7 +1175,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
